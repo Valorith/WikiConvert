@@ -27,3 +27,8 @@ surounded by double quotes and seperated by commas. i.e. `@nameFilters = ("Categ
 - Once complete, the tool will export an output .txt file with the following name: `<origional_input_file_name>_converted.txt`, where `<origioal_input_file_name>` 
 is the name of the original .txt file that you loaded into the tool.
 - You can now copy/paste the text from the exported output file into your wiki editor. 
+
+
+![image](https://user-images.githubusercontent.com/76063792/213879566-01cefc9e-84de-4b2c-a261-44e0473cddee.png)
+
+![image](https://user-images.githubusercontent.com/76063792/213879597-9298577b-9073-4484-9b40-a96bd7fc858e.png)
