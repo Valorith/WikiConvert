@@ -1,0 +1,87 @@
+== Checklist ==
+
+The Druid epic quest is very similar to live with a few key exceptions.  One is that the dialog has been changed slightly, so be sure to pay attention when working through the quest.  Second - and probably most important - is that handing the [[Froglok Essence]] to [[Dolgin Codslayer]] will not spawn [[Faydedar]] - instead Dolgin will eat the Essence.  You instead will have to kill the open world or instance version of Faydedar to loot the [[Pod of Seawater]].   <br> 
+<br>
+
+'''''Acquiring the Shiny Tin Bowl'''''<br>
+
+[ ] Speak with Telin Darkforest in Burning Wood and receive a [[Worn Note]].<br>
+[ ] Spawn Faelin Bloodbriar in Greater Faydark and give her the [[Worn Note]], receiving [[Faelin`s Ring]].<br>
+[ ] Find Giz X`Tin in Kithicor Forest and give him [[Faelin`s Ring]], receiving a [[Dark Metal Coin]].<br>
+[ ] Give [[Dark Metal Coin]] to Telin Darkforest, receive [[Worn Dark Metal Coin]]<br>
+[ ] Find Althele in East Karana and give her the [[Worn Dark Metal Coin]]. The druid will tell you to find Sionae who will show up on track and give you a [[Braided Grass Amulet]].<br>
+[ ] Give Sionae (-2300, -930) the [[Braided Grass Amulet]], Amulet is returned.<br>
+[ ] Give Nuien (-3650, 300) the [[Braided Grass Amulet]], Amulet is returned.<br>
+[ ] Give Teloa (-3800, -2860) the [[Braided Grass Amulet]], spawning a Dark Elf Corruptor and two Dark Elf Reavers. (-1500, -1000)<br>
+[ ] Kill the Dark Elf Corruptor, loot [[Fleshbound Tome]], give to Althele, receive [[Earth Stained Note]].<br>
+[ ] Give Ella Foodcrafter in Misty Thicket the [[Earth Stained Note]] and receive a [[Shiny Tin Bowl]].  ''Be sure to read the dialog here -- this has been a pain point for multiple people attempting the quest.''<br>
+<br>
+
+'''''Foraging the Hardened Mixture'''''<br>
+
+[ ] Forage Chilled [[Tundra Root]] from Everfrost.<br>
+[ ] Forage [[Ripened Heartfruit]] from Greater Faydark.<br>
+[ ] Forage [[Speckled Molded Mushroom]] from Innothule Swamp.<br>
+[ ] Forage [[Sweetened Mudroot]] from Misty Thicket.<br>
+[ ] Combine all four items in the [[Shiny Tin Bowl]] to make a [[Hardened Mixture]].<br>
+<br>
+
+'''''Making the Runecrested Bowl'''''<br>
+
+''The Ancient Pattern''<br>
+[ ] Talk to Alrik Farsight in Timorous Deep and receive a [[Crushed Pot]]. (Say: "I will take the artifact")<br>
+[ ] Give Farios Elianos in Felwithe South the Crushed Pot and receive a [[Grocery List]].<br>
+[ ] Give Merchant Nora in Northern Felwithe the [[Grocery List]] and receive a [[Bag of Provisions]].<br>
+[ ] Give the [[Bag of Provisions]] to Farios Elianos and receive a [[Receipt]].<br>
+[ ] Give the [[Receipt]] to Alrik Farsight and receive an [[Ancient Pattern]].<br>
+
+''The Platinum Speckled Powder''<br>
+[ ] Forage a [[Rose of Firiona]] from Firiona Vie.<br>
+[ ] Hail Merdan Fleetfoot in Surefall Glade, ask him "Who is Niera?", then hand him the [[Rose of Firiona]] receiving a [[Wood Painting]].<br>
+[ ] Track down a human skeleton in Frontier Mountains, give it the [[Wood Painting]] receiving a [[Silver Chained Locket]].<br>
+[ ] Give Niera Farbreeze in Surefall Glade the Silver Chained Locket receiving [[Platinum Speckled Powder]].<br>
+
+''The Enchanted Clay''
+Slay black reavers in City of Mist and loot a [[Jade Reaver]].<br>
+Speak to Kinlo Strongarm in North Kaladim and give him the [[Jade Reaver]] receiving [[Enchanted Clay]].<br>
+Combine the [[Ancient Pattern]], [[Platinum Speckled Powder]], and [[Enchanted Clay]] in a Pottery Wheel creating a [[Runecrested Bowl]].<br>
+
+'''''Stones into Elaborate Scimitar'''''<br>
+[ ] Give the [[Hardened Mixture]] and [[Runecrested Bowl]] to Ella Foodcrafter, receiving a [[Softly glowing stone]].<br>
+[ ] Slay Venril Sathir in Karnor's Castle and loot a [[Pulsing Green Stone]].<br>
+[ ] Give Foloal Stormforest in Firiona Vie the [[Pulsing Green Stone]] and [[Softly Glowing Stone]], receiving a [[Warmly Glowing Stone]].<br>
+[ ] Give the [[Warmly Glowing Stone]] to Ella Foodcrafter and receive the [[Elaborate Scimitar]].<br>
+
+'''''Cleansing Spirits'''''<br>
+[ ] Cleansed Spirit of Antonica<br>
+[ ] Kill corrupted wooly mammoth in Everfrost Peaks, loot a [[Chunk of Tundra]]<br>
+[ ] Kill corrupted shaman in Lake Rathetear, loot [[Clean Lakewater]]<br>
+[ ] Kill corrupted hill giant in Rathe Mountains, loot an [[Ancient Rock]]<br>
+[ ] Hand the [[Chunk of Tundra]], [[Clean Lakewater]] and [[Ancient Rock]] to the Withered treant in Northern Karana, receive a [[Warm Pulsing Treant Heart]]<br>
+[ ] Give Yeka Ias in Southern Karana, the [[Warm Pulsing Treant Heart]], receive [[Cleansed Spirit of Antonica]]<br>
+
+''Cleansed Spirit of Faydwer''<br>
+[ ] Kill Corrupted Seahorse in Kedge Keep, loot [[Kedge Cave Crystals]]<br>
+[ ] Kill Corrupted seafury cyclops in Ocean of Tears, loot [[Ocean of Tears Seavines]]<br>
+[ ] Kill Corrupted brownie in Lesser Faydark, loot [[Green Heartwood Branch]]<br>
+[ ] Hand the [[Kedge Cave Crystals]], [[Ocean of Tears Seavines]], and [[Green Heartwood Branch]] to the Pained Unicorn in Lesser Faydark, receive [[Gleaming Unicorn Horn]]<br>
+[ ] Hand the [[Gleaming Unicorn Horn]] to the gnome Silox Azrix in Ak'Anon to get the [[Cleansed Spirit of Faydwer]]<br>
+
+''Cleansed Spirit of Kunark''<br>
+[ ] Kill Ulump Pujluk in Swamp of No Hope, loot [[Froglok Essence]]<br>
+[ ] Kill the Corrupted Gorilla in Emerald Jungle, loot the [[Green Tree Bark]]<br>
+[ ] Kill the Corrupted barracuda in Lake of Ill Omen and loot the [[Pure Lakewater]]<br>
+[ ] Kill Faydedar (open world or instance version) and loot the [[Pod of Seawater]].  ''Another pain point - this is different than live where you turned the essence into Dolgin -- do not do that, Dolgin will eat it''<br>
+[ ] Hand the [[Froglok Essence]], [[Pod of Seawater]], [[Green Tree Bark]] and [[Pure Lakewater]] to Nekexin Virulence in The Overthere to get the [[Cleansed Spirit of Kunark]]<br>
+
+'''Nature Walker’s Scimitar!'''<br>
+[ ] Give the [[Elaborate Scimitar]], [[Cleansed Spirit of Antonica]],[[Cleansed Spirit of Faydwer]], and [[Cleansed Spirit of Kunark]] to Xanuusus the Treant in North Karana, to receive the [[Nature Walkers Scimitar]].<br>
+
+<br>
+'''Congratulations on your [[Nature Walkers Scimitar]]!'''<br>
+<br>
+
+
+[[Category:Quest]]
+[[Category:Druid]]
+[[Category:Epic]]
