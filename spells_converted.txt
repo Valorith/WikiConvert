@@ -1,0 +1,32 @@
+[https://alla.clumsysworld.com/?a=spell&id=21990 Courage]
+[https://alla.clumsysworld.com/?a=spell&id=203 Cure Poison]
+[https://alla.clumsysworld.com/?a=spell&id=23601 Divine Aura]
+[https://alla.clumsysworld.com/?a=spell&id=12741 Flash of Light]
+[https://alla.clumsysworld.com/?a=spell&id=38001 Heroic Leap]
+[https://alla.clumsysworld.com/?a=spell&id=11 Holy Armor]
+[https://alla.clumsysworld.com/?a=spell&id=10413 Lull]
+[https://alla.clumsysworld.com/?a=spell&id=200 Minor Healing]
+[https://alla.clumsysworld.com/?a=spell&id=209 Spook the Dead]
+
+[ ] Speak with Telin Darkforest in Burning Wood and receive a [[Worn Note]].<br>
+[ ] Spawn Faelin Bloodbriar in Greater Faydark and give her the [[Worn Note]], receiving [[Faelin`s Ring]].<br>
+[ ] Find Giz X`Tin in Kithicor Forest and give him [[Faelin`s Ring]], receiving a [[Dark Metal Coin]].<br>
+[ ] Give [[Dark Metal Coin]] to Telin Darkforest, receive [[Worn Dark Metal Coin]]<br>
+[ ] Find Althele in East Karana and give her the [[Worn Dark Metal Coin]]. The druid will tell you to find Sionae who will show up on track and give you a [[Braided Grass Amulet]].<br>
+[ ] Give Sionae (-2300, -930) the [[Braided Grass Amulet]], Amulet is returned.<br>
+[ ] Give Nuien (-3650, 300) the [[Braided Grass Amulet]], Amulet is returned.<br>
+[ ] Give Teloa (-3800, -2860) the [[Braided Grass Amulet]], spawning a Dark Elf Corruptor and two Dark Elf Reavers. (-1500, -1000)<br>
+[ ] Kill the Dark Elf Corruptor, loot [[Fleshbound Tome]], give to Althele, receive [[Earth Stained Note]].<br>
+[ ] Give Ella Foodcrafter in Misty Thicket the [[Earth Stained Note]] and receive a [[Shiny Tin Bowl]].  ''Be sure to read the dialog here -- this has been a pain point for multiple people attempting the quest.''<br>
+<br>
+
+[https://alla.clumsysworld.com/?a=spell&id=5205 Strike]
+[https://alla.clumsysworld.com/?a=spell&id=205 True North]
+[https://alla.clumsysworld.com/?a=spell&id=7707 Yaulp]
+[https://alla.clumsysworld.com/?a=spell&id=215 Reckless Strength]
+[https://alla.clumsysworld.com/?a=spell&id=16982 Stun]
+[https://alla.clumsysworld.com/?a=spell&id=212 Cure Blindness]
+[https://alla.clumsysworld.com/?a=spell&id=39513 Summon Drink]
+[https://alla.clumsysworld.com/?a=spell&id=213 Cure Disease]
+[https://alla.clumsysworld.com/?a=spell&id=37292 Light Healing]
+[https://alla.clumsysworld.com/?a=spell&id=218 Ward Undead]
