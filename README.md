@@ -16,7 +16,7 @@ The new, modified wiki data is then exported to `<original_file_name>_converted.
 - Open the above perl script in a text editor and change the `$AllaCloneBaseURL` value to match the base url for your alla clone of choice.
 - Adjust the `@itemNameFilters` or `@spellNameFilters` values as desired to filter out any text within [brackets] or {{curlyBraces}} that you do not want converted. Values should all be within the parenthasis, surounded by double quotes and seperated by commas. i.e. `@itemNameFilters = ("Category:", "Filter2", "Filter3");`
 - Save your updated script.
-- Copy your Wiki markup text from your wiki of choice. Ensure that any names that you want converted into Alla Clone item links are surrounded by [[double brackets]] and any names that you want converted into Alla Clone spell links are surrounded by {{double curly braces}}.
+- Copy your Wiki markup text from your wiki of choice. Ensure that any names that you want converted into Alla Clone item links are surrounded by `[[double brackets]]` and any names that you want converted into Alla Clone spell links are surrounded by `{{double curly braces}}`.
 - Paste the text into a .txt file (within the same directory as the perl script) with a name of your choice. Save the File.
 - Open your terminal application of choice (i.e. Command Prompt, Power Shell, etc) and navigate to the folder that the script is in.
 - Type `perl wikiConvert.pl`.
