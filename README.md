@@ -1,6 +1,6 @@
 # WikiConvert
 
-This tool allows you to convert wiki links enclosed in [brackets] into EveryQuest Alla Clone links.
+This tool allows you to convert wiki links enclosed in [[double brackets]] (items), {{double curly braces}} (spells), etc into EveryQuest Alla Clone links.
 
 # Item Links
 The tool will scan the input .txt file and look up the item ID (from the Alla clone). That item id is then used to inject Alla Clone links in place of the item names

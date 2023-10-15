@@ -1,0 +1,227 @@
+==Spells==
+{| class="wikitable"	
+|Spell Name || Level || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=32975 Salve] || 1 || 8 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=12741 Flash of Light] || 2 || 12 || Divination || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=205 True North] || 3 || 5 || Divination || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=16845 Sense the Dead] || 4 || 5 || Divination || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=203 Cure Poison] || 5 || 20 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=200 Minor Healing] || 6 || 10 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2581 Cease] || 7 || 15 || Evocation || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=21990 Courage] || 8 || 12 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=209 Spook the Dead] || 9 || 10 || Alteration || Undead only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=7707 Yaulp] || 9 || 1 || Abjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=10413 Lull] || 10 || 10 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=213 Cure Disease] || 11 || 20 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=37292 Light Healing] || 12 || 28 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2582 Desist] || 13 || 25 || Evocation || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=223 Hammer of Wrath] || 14 || 50 || Conjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=218 Ward Undead] || 14 || 5 || Evocation || Undead only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=11 Holy Armor] || 15 || 20 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=234 Halo of Light] || 16 || 40 || Conjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2739 Invisibility versus Undead] || 17 || 40 || Divination || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=215 Reckless Strength] || 18 || 30 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4056 Remove Minor Curse] || 19 || 25 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=41472 Root] || 19 || 30 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=219 Center] || 20 || 40 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=227 Endure Poison] || 21 || 20 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4334 Reanimation] || 22 || 150 || Alteration || Target's corpse
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=37 Hammer of Striking] || 23 || 100 || Conjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=42619 Astounding Light] || 24 || 60 || Evocation || Area of effect around the caster
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=485 Symbol of Transal] || 24 || 55 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=501 Soothe] || 25 || 30 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2583 Instrument of Nife] || 26 || 50 || Abjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=8165 Healing] || 27 || 65 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=16982 Stun] || 28 || 35 || Evocation || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=228 Endure Magic] || 29 || 40 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=233 Expulse Undead] || 30 || 36 || Evocation || Undead only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2169 Reconstitution] || 30 || 200 || Alteration || Target's corpse
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=368 Spirit Armor] || 30 || 75 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2170 Reparation] || 31 || 250 || Alteration || Target's corpse
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=48 Cancel Magic] || 32 || 30 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=486 Symbol of Ryltan] || 33 || 111 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=95 Counteract Poison] || 34 || 50 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4057 Remove Lesser Curse] || 34 || 75 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2584 Divine Vigor] || 35 || 35 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=15 Greater Healing] || 36 || 115 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3552 Daring] || 37 || 60 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1453 Divine Purpose] || 37 || 1 || Alteration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=226 Endure Disease] || 38 || 20 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=43 Yaulp II] || 38 || 1 || Abjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=42620 Confounding Light] || 39 || 120 || Evocation || Area of effect around the caster
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=777 Guard] || 39 || 80 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=391 Revive] || 39 || 300 || Alteration || Target's corpse
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3577 Wave of Life] || 39 || 274 || Alteration || Group teleport
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=123 Holy Might] || 42 || 60 || Evocation || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=47 Calm] || 43 || 50 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3683 Ethereal Cleansing] || 44 || 150 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2585 Valor of Marr] || 44 || 300 || Alteration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=693 Divine Might] || 45 || 100 || Alteration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2946 Remove Curse] || 45 || 75 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=117 Dismiss Undead] || 46 || 63 || Evocation || Undead only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=487 Symbol of Pinzarn] || 46 || 200 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2586 Thunder of Karana] || 47 || 75 || Evocation || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2775 Valor] || 47 || 90 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=19 Armor of Faith] || 48 || 150 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=23601 Divine Aura] || 48 || 10 || Abjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3578 Brell's Steadfast Aegis] || 49 || 175 || Alteration || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=45 Pacify] || 49 || 100 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4997 Renewal] || 49 || 400 || Alteration || Target's corpse
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1454 Flame of Light] || 50 || 85 || Evocation || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=63 Resist Disease] || 50 || 50 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4585 Resistant Discipline] || 51 || 0 || Defense || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=20226 Force] || 52 || 90 || Evocation || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=504 Frenzied Strength] || 52 || 90 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3684 Light of Life] || 52 || 215 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=42613 Overwhelming Purpose] || 52 || 180 || Alteration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1288 Divine Glory] || 53 || 60 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3975 Force of Akera] || 53 || 90 || Evocation || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=662 Expel Undead] || 54 || 93 || Evocation || Undead only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4587 Fearless Discipline] || 54 || 0 || Defense || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3946 Instill] || 54 || 60 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2587 Quellious' Word of Tranquility] || 54 || 200 || Evocation || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4064 Austerity] || 55 || 550 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=42621 Bemusing Light] || 55 || 200 || Evocation || Area of effect around the caster
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1743 Divine Favor] || 55 || 150 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=8925 Holy Aura] || 55 || 340 || Conjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4500 Holyforge Discipline] || 55 || 0 || Offense || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=72 Resist Magic] || 55 || 85 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=11637 Restoration] || 55 || 600 || Alteration || Target's corpse
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1455 Wave of Healing] || 55 || 503 || Alteration || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2588 Breath of Tunare] || 56 || 1 || Alteration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=39001 Counteract Disease] || 56 || 50 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=7004 Guard of Piety] || 56 || 0 || Alteration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=44 Yaulp III] || 56 || 1 || Abjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=9 Superior Healing] || 57 || 185 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4065 Blessing of Austerity] || 58 || 1650 || Abjuration || Group teleport
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2589 Healing Wave of Prexus] || 58 || 698 || Alteration || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=49 Nullify Magic] || 58 || 50 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=488 Symbol of Naltron] || 58 || 315 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1283 Celestial Cleansing] || 59 || 225 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4590 Deflection Discipline] || 59 || 0 || Blockskill || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=12786 Resurrection] || 59 || 700 || Alteration || Target's corpse
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=17783 Battlemaster's Advantage] || 60 || 0 || Abjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2590 Brell's Mountainous Barrier] || 60 || 200 || Alteration || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1456 Divine Strength] || 60 || 75 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=21400 Eradicate Curse] || 60 || 400 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=17786 One Handed Expertise] || 60 || 0 || Conjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2880 Remove Greater Curse] || 60 || 100 || Alteration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3555 Resolution] || 60 || 110 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4518 Sanctification Discipline] || 60 || 0 || Defense || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=17784 Shield Expertise] || 60 || 0 || Conjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=20 Shield of Words] || 60 || 300 || Abjuration || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=17785 Two Handed Expertise] || 60 || 0 || Conjuration || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1534 Yaulp IV] || 60 || 1 || Abjuration || Self only
+|-
+|}
