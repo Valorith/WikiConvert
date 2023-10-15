@@ -20,6 +20,7 @@ our $postFilterItemNamesLength = 0;
 our $postFilterSpellNamesLength = 0;
 our $maxLevel = 60;
 our $filePath = "";
+our $headerCount = 0;
 
 # Secondary global variables
 our $bardSpellListURL = "$AllaCloneBaseURL/?a=spells&name=&type=8&level=$maxLevel&opt=3";
@@ -81,9 +82,11 @@ sub getWebPageData {
       my $classIndex = grep { $headers->[$_] eq "Class" } 0..$#$headers;
       splice @$headers, $classIndex, 1, "Class", "Level";
     }
+      #Update the header count variable
+      $headerCount = @$headers;
 
       #Print a debug statement showing the headers
-      print "Debug: Headers: ", join(", ", grep { defined && $_ ne "" } @$headers), "\n";
+      #print "Debug: Headers: ", join(", ", grep { defined && $_ ne "" } @$headers), "\n";
 
       my $rowIndex = 0;
       foreach my $row (@{$ts->rows}[2..$#{$ts->rows}]) {
@@ -115,11 +118,15 @@ sub getWebPageData {
         # Storing data as hash references
         my %row_data;
         $rowIndex++;
+        #print a debug statement showing the header and row count comparison
+        my $tempHeaderCount = @$headers;
+        my $tempRowCount = @$row;
+        print "Debug: Header Count: $tempHeaderCount, Row Count: ", $tempRowCount, "\n";
         if ($headers && @$headers == @$row) {
-          print "Debug: Table($tableIndex), Row($rowIndex): ", join(", ", grep { defined && $_ ne "" } @$row), "\n";
+          #print "Debug: Table($tableIndex), Row($rowIndex): ", join(", ", grep { defined && $_ ne "" } @$row), "\n";
           @row_data{@$headers} = @$row;
           push @table_data, \%row_data;
-          print "Debug: Hash pushed: ", join(", ", map { "$_ => $row_data{$_}" } keys %row_data), "\n";
+          #print "Debug: Hash pushed: ", join(", ", map { "$_ => $row_data{$_}" } keys %row_data), "\n";
         } else {
           #warn "Headers and row data are not the same length! Skipping row.\n";
           next;
@@ -1179,14 +1186,26 @@ if (lc($linkType) eq "spelllist") { #Determine scope of conversion: All Classes 
     <STDIN>;
   }
 
+  my $headerRow = "| Spell Name || Mana || Skill || Target Type";
+  #count the number of occurances of "||" in $headerRow and subtract one to get the number of columns
+  $headerCount = () = $headerRow =~ /\|\|/g;
+  $headerCount++; #add one to account for the first column
   my @output = ("==Spells==",
                 "{| class=\"wikitable\"\t",
-                "|Spell Name || Level || Mana || Skill || Target Type",
                 "|-");
   my $outputRow = "";
 
+  my $currentLevel = 0;
   for (my $i = 0; $i < $spellCount; $i++) {
-    $outputRow = "|{{$spellNames[$i]}} || $spellLevel[$i] || $spellMana[$i] || $spellSkill[$i] || $spellTargetType[$i]";
+    
+    if ($spellLevel[$i] > $currentLevel) {
+      $currentLevel = $spellLevel[$i];
+      push @output, "! colspan=\"$headerCount\" | '''Level $currentLevel'''";
+      push @output, "|-";
+      push @output, $headerRow;
+      push @output, "|-";
+    }
+    $outputRow = "|{{$spellNames[$i]}} || $spellMana[$i] || $spellSkill[$i] || $spellTargetType[$i]";
     push @output, $outputRow;
     push @output, "|-";
   }
