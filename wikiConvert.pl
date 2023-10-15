@@ -21,6 +21,7 @@ our $postFilterSpellNamesLength = 0;
 our $maxLevel = 60;
 our $filePath = "";
 our $headerCount = 0;
+our $dir = ""; # Current working directory
 
 # Secondary global variables
 our $bardSpellListURL = "$AllaCloneBaseURL/?a=spells&name=&type=8&level=$maxLevel&opt=3";
@@ -39,9 +40,38 @@ our $shadowKnightSpellListURL = "$AllaCloneBaseURL/?a=spells&name=&type=5&level=
 our $shamanSpellListURL = "$AllaCloneBaseURL/?a=spells&name=&type=10&level=$maxLevel&opt=3";
 our $warriorSpellListURL = "$AllaCloneBaseURL/?a=spells&name=&type=1&level=$maxLevel&opt=3";
 our $wizardSpellListURL = "$AllaCloneBaseURL/?a=spells&name=&type=12&level=$maxLevel&opt=3";
+our @spellListUrls = ($bardSpellListURL, $beastlordSpellListURL, $berserkerSpellListURL, $clericSpellListURL, 
+$druidSpellListURL, $enchanterSpellListURL, $magicianSpellListURL, $monkSpellListURL, $necromancerSpellListURL, 
+$paladinSpellListURL, $rangerSpellListURL, $rogueSpellListURL, $shadowKnightSpellListURL, $shamanSpellListURL, 
+$warriorSpellListURL, $wizardSpellListURL);
+our @classList = ("Bard", "Beastlord", "Berserker", "Cleric", "Druid", "Enchanter", "Magician", "Monk", "Necromancer",
+"Paladin", "Ranger", "Rogue", "Shadow Knight", "Shaman", "Warrior", "Wizard");
+
+# Spell List global variables
+our @spellClass;
+our @spellLevel;
+our @spellMana;
+our @spellSkill;
+our @spellTargetType;
+our @spellID;
+our $spellCount = 0;
+
+
 
 # Subroutines
-sub getSpellListUrlAtLevel() {
+
+sub clearSpellListCache() {
+  @spellNames = ();
+  @spellClass = ();
+  @spellLevel = ();
+  @spellMana = ();
+  @spellSkill = ();
+  @spellTargetType = ();
+  @spellID = ();
+}
+
+
+sub getSpellListUrlAtLevel {
   my $classID = shift;
   my $level = shift;
   
@@ -52,8 +82,209 @@ sub getSpellListUrlAtLevel() {
   return "$AllaCloneBaseURL/?a=spells&name=&type=$classID&level=$level&opt=1";
 }
 
+sub getSpellList {
+  my $classIndex = shift;
+  my $className = $classList[$classIndex];
+  my $classUrl = $spellListUrls[$classIndex];
+
+  clearSpellListCache();
+  my @data = getWebPageData($classUrl);
+      
+  foreach my $table (@data) {
+    foreach my $row (@$table) {
+        print "----------------------------------------\n";
+        if (defined $row->{'Name'}) {
+          push @spellNames, $row->{'Name'};
+          print "Name: $spellNames[-1]\n";
+          
+        }
+        if (defined $row->{'Class'}) {
+          push @spellClass, $row->{'Class'};
+          print "Class: $spellClass[-1]\n";
+        }
+        if (defined $row->{'Level'}) {
+          push @spellLevel, $row->{'Level'};
+          print "Level: $spellLevel[-1]\n";
+        }
+        if (defined $row->{'Mana'}) {
+          push @spellMana, $row->{'Mana'};
+          print "Mana: $spellMana[-1]\n";
+        }
+        if (defined $row->{'Skill'}) {
+          push @spellSkill, $row->{'Skill'};
+          print "Skill: $spellSkill[-1]\n";
+        }
+        if (defined $row->{'Target Type'}) {
+          push @spellTargetType, $row->{'Target Type'};
+          print "Target Type: $spellTargetType[-1]\n";
+        }
+        if (defined $row->{'Spell ID'}) {
+          push @spellID, $row->{'Spell ID'};
+          print "Spell ID: $spellID[-1]\n";
+        }
+    }
+    $spellCount = @spellNames;
+  }
+
+  my $headerRow = "| Spell Name || Mana || Skill || Target Type";
+  #count the number of occurances of "||" in $headerRow and subtract one to get the number of columns
+  $headerCount = () = $headerRow =~ /\|\|/g;
+  $headerCount++; #add one to account for the first column
+  my @output = ("==Spells==",
+                "{| class=\"wikitable\"\t",
+                "|-");
+  my $outputRow = "";
+
+  my $currentLevel = 0;
+  for (my $i = 0; $i < $spellCount; $i++) {
+    
+    if ($spellLevel[$i] > $currentLevel) {
+      $currentLevel = $spellLevel[$i];
+      push @output, "! colspan=\"$headerCount\" | '''Level $currentLevel'''";
+      push @output, "|-";
+      push @output, $headerRow;
+      push @output, "|-";
+    }
+    $outputRow = "|{{$spellNames[$i]}} || $spellMana[$i] || $spellSkill[$i] || $spellTargetType[$i]";
+    push @output, $outputRow;
+    push @output, "|-";
+  }
+
+  push @output, "|}";
+
+  my $outputString = join("\n", @output);
+
+  # $adjustedClassName should reflect the class name in the format used by the wiki. (i.e. shadow_knight)
+  my $adjustClassName = lc($className);
+  $adjustClassName =~ s/ /_/g;
+
+  print "Saving new file...\n";
+  #Save to a new file in the root directory with a name matching the class name and "_spell_list.txt"
+  my $fileName = "$adjustClassName"."_spell_list.txt";
+  $filePath = "$dir/$fileName";
+  open(my $newFile, '>', $filePath) or die "Could not open file '$filePath' $!";
+  print $newFile $outputString;
+  close $newFile;
+  print "File successfully created and saved to $filePath.\n";
+
+
+}
+
+sub convertSpellNames {
+  my $fileName = shift;
+
+  # Check if "_spell_list.txt" is already present in the file name
+  if ($fileName !~ /_spell_list\.txt$/) {
+    # Append "_spell_list.txt" to the file name
+    $fileName .= "_spell_list.txt";
+  }
+
+  # Concatenate the directory path and file name
+  $filePath = "$dir/$fileName";
+    
+  if (-e $filePath && -f $filePath) {
+  # File exists and is a regular file
+  print "Opening file...\n";
+  sysopen(our $file, $filePath, 2) or die "Could not open file $filePath: $!";
+  $text = do {local $/; <$file>};
+  close $file;
+  } else {
+      # File does not exist or is not a regular file
+      die "$filePath does not exist or is not a regular file";
+  }
+
+  
+  print "Searching for spell names...\n";
+  @spellNames = $text =~ /\{\{(.*?)\}\}/g;
+  
+  our $preFilterSpellNamesLength = @spellNames;
+  print "[$preFilterSpellNamesLength] spells detected...\n";
+
+  print "Filtering detected names...\n";
+  our $filterCount = @spellNameFilters;
+  print "There are currently [$filterCount] spell filters active...\n";
+  # Apply the name filter to the spellNames array.
+  
+  my @updatedSpellNames;
+  # Iterate through the spell names
+foreach my $spellName (@spellNames) {
+    my $match = 0;
+    # Iterate through the name filters
+    foreach my $nameFilter (@spellNameFilters) {
+        # Convert both strings to lowercase for case-insensitivity
+        our $LCnameFilter = lc($nameFilter);
+        our $LCspellName = lc($spellName);
+        # Check if the name filter is found within the spell name
+        if ($LCspellName =~ /$LCnameFilter/) {
+            $match = 1;
+            last;
+        }
+    }
+    if (!$match){
+        push @updatedSpellNames, $spellName;
+    }
+}
+@spellNames = @updatedSpellNames;
+
+  $postFilterSpellNamesLength = @spellNames;
+  print "[" . ($preFilterSpellNamesLength - $postFilterSpellNamesLength) . "] spells remaining after applying spell filters...\n";
+
+  #Search for each spell in turn using the Alla clone URL pattern
+  print "Searching for spell IDs...\n";
+
+  my $currentNameIndex = 1;
+
+
+  foreach my $spell (@spellNames) {
+    my $ua = LWP::UserAgent->new;
+    print "[$currentNameIndex/$postFilterSpellNamesLength - " . sprintf("%.1f", ($currentNameIndex/$postFilterSpellNamesLength) * 100) . "%] Searching Alla Clone for spell id for [$spell]...\n";
+    $spell =~ s/ /+/g; #Replace spaces with + for URL
+    my $response = $ua->get("$AllaCloneBaseURL/?a=spells&name=$spell");
+    my $spellId = 0;
+    if ($response->is_success) {
+      print "Response received...\n";
+      my $content = $response->decoded_content;
+      if ($content =~ /spell&id=(\d+)/) {
+          $spellId = $1;
+          print color("green"),"Spell id located [$spellId]...\n", color("reset");
+          push @spellIds, $spellId;
+      } else {
+          print color("red"),"Spell id not located...\n", color("reset");
+          $spellId = 0;
+          push @spellIds, 0;
+      }
+    } else {
+      print color("red"),"Response not received...\n", color("reset");
+      push @spellIds, 0;
+    }
+    $currentNameIndex++;
+    $spellId = 0;
+    print "----------------------------------------\n";
+  }
+
+  print "Replacing spell names with Alla Clone links...\n";
+  my $i = 0;
+  foreach my $spellName (@spellNames) {
+    $spellName =~ s/\+/ /g; #Replace + with space for clean name
+    my $spellID = $spellIds[$i];
+    printf "Replacing spell [$spellName]($spellID) with [https:alla.clumsysworld.com/?a=spell&id=$spellID $spellName\]...\n";
+    $text =~ s/\{\{($spellName)\}\}/\[https:\/\/alla.clumsysworld.com\/?a=spell&id=$spellID $spellName\]/g;
+    $i++;
+  }
+
+
+  print "Saving new file...\n";
+  my $newFilePath = substr($filePath, 0, rindex($filePath, '.')) . "_converted.txt";
+  sysopen(my $newFile, $newFilePath, O_RDWR|O_CREAT|O_EXCL) or die "Could not create file $newFilePath: $!";
+  print $newFile $text;
+  close $newFile;
+
+  #Provide a success message
+  print "File successfully converted and saved to $newFilePath.\n";
+}
+
 sub getWebPageData {
-  my ($url) = @_;
+  my $url = shift;
 
   my $ua = LWP::UserAgent->new();
   my $response = $ua->get($url);
@@ -142,8 +373,8 @@ sub getWebPageData {
   }
 }
 
-# Get the directory path of the current script
-my $dir = getcwd();
+# Get the current working directory
+$dir = getcwd();
 
 print "Would you like to convert names into links for Items, NPCs, Spells, Zones? If you want to use a different tool, state Other. (Enter 'Items', 'NPCs', 'Spells', 'Zones' or 'Other'): ";
 my $linkType = <>;
@@ -263,108 +494,7 @@ foreach my $itemName (@itemNames) {
   my $fileName = <>;
   chomp $fileName;
 
-  # Concatenate the directory path and file name
-  $filePath = "$dir/$fileName";
-    
-  if (-e $filePath && -f $filePath) {
-  # File exists and is a regular file
-  print "Opening file...\n";
-  sysopen(our $file, $filePath, 2) or die "Could not open file $filePath: $!";
-  $text = do {local $/; <$file>};
-  close $file;
-  } else {
-      # File does not exist or is not a regular file
-      die "$filePath does not exist or is not a regular file";
-  }
-
-  
-  print "Searching for spell names...\n";
-  @spellNames = $text =~ /\{\{(.*?)\}\}/g;
-  
-  our $preFilterSpellNamesLength = @spellNames;
-  print "[$preFilterSpellNamesLength] spells detected...\n";
-
-  print "Filtering detected names...\n";
-  our $filterCount = @spellNameFilters;
-  print "There are currently [$filterCount] spell filters active...\n";
-  # Apply the name filter to the spellNames array.
-  
-  my @updatedSpellNames;
-  # Iterate through the spell names
-foreach my $spellName (@spellNames) {
-    my $match = 0;
-    # Iterate through the name filters
-    foreach my $nameFilter (@spellNameFilters) {
-        # Convert both strings to lowercase for case-insensitivity
-        our $LCnameFilter = lc($nameFilter);
-        our $LCspellName = lc($spellName);
-        # Check if the name filter is found within the spell name
-        if ($LCspellName =~ /$LCnameFilter/) {
-            $match = 1;
-            last;
-        }
-    }
-    if (!$match){
-        push @updatedSpellNames, $spellName;
-    }
-}
-@spellNames = @updatedSpellNames;
-
-  $postFilterSpellNamesLength = @spellNames;
-  print "[" . ($preFilterSpellNamesLength - $postFilterSpellNamesLength) . "] spells remaining after applying spell filters...\n";
-
-  #Search for each spell in turn using the Alla clone URL pattern
-  print "Searching for spell IDs...\n";
-
-  my $currentNameIndex = 1;
-
-
-  foreach my $spell (@spellNames) {
-    my $ua = LWP::UserAgent->new;
-    print "[$currentNameIndex/$postFilterSpellNamesLength - " . sprintf("%.1f", ($currentNameIndex/$postFilterSpellNamesLength) * 100) . "%] Searching Alla Clone for spell id for [$spell]...\n";
-    $spell =~ s/ /+/g; #Replace spaces with + for URL
-    my $response = $ua->get("$AllaCloneBaseURL/?a=spells&name=$spell");
-    my $spellId = 0;
-    if ($response->is_success) {
-      print "Response received...\n";
-      my $content = $response->decoded_content;
-      if ($content =~ /spell&id=(\d+)/) {
-          $spellId = $1;
-          print color("green"),"Spell id located [$spellId]...\n", color("reset");
-          push @spellIds, $spellId;
-      } else {
-          print color("red"),"Spell id not located...\n", color("reset");
-          $spellId = 0;
-          push @spellIds, 0;
-      }
-    } else {
-      print color("red"),"Response not received...\n", color("reset");
-      push @spellIds, 0;
-    }
-    $currentNameIndex++;
-    $spellId = 0;
-    print "----------------------------------------\n";
-  }
-
-  print "Replacing spell names with Alla Clone links...\n";
-  my $i = 0;
-  foreach my $spellName (@spellNames) {
-    $spellName =~ s/\+/ /g; #Replace + with space for clean name
-    my $spellID = $spellIds[$i];
-    printf "Replacing spell [$spellName]($spellID) with [https:alla.clumsysworld.com/?a=spell&id=$spellID $spellName\]...\n";
-    $text =~ s/\{\{($spellName)\}\}/\[https:\/\/alla.clumsysworld.com\/?a=spell&id=$spellID $spellName\]/g;
-    $i++;
-  }
-
-
-  print "Saving new file...\n";
-  my $newFilePath = substr($filePath, 0, rindex($filePath, '.')) . "_converted.txt";
-  sysopen(my $newFile, $newFilePath, O_RDWR|O_CREAT|O_EXCL) or die "Could not create file $newFilePath: $!";
-  print $newFile $text;
-  close $newFile;
-
-  #Provide a success message
-  print "File successfully converted and saved to $newFilePath.\n";
+  convertSpellNames($fileName);
 
 
 } elsif (!(lc($linkType) eq "other")) {
@@ -415,813 +545,103 @@ if (lc($linkType) eq "spelllist") { #Determine scope of conversion: All Classes 
   my $listScope = <>;
   chomp $listScope;
 
-  my @spellNames;
-  my @spellClass;
-  my @spellLevel;
-  my @spellMana;
-  my @spellSkill;
-  my @spellTargetType;
-  my @spellID;
-  my $spellCount = 0;
+  
 
 
 
   if (lc($listScope) eq "all") {
+
+    #print a warning in red that asks the player to confirm that they want to generate spell lists for all classes
+    print color("red"),"WARNING: This will generate spell lists for all classes. This may take a long time to complete (aprox 20 mins).\n", color("reset");
+    print color("red"),"Are you sure you want to continue? (y/n): ", color("reset");
+    my $confirm = <>;
+    chomp $confirm;
+    if (lc($confirm) eq "n") {
+      print "Exiting...\n";
+      print "Press any key to exit...\n";
+      <STDIN>;
+      exit;
+    }
     
+    # Step 1: Clear spell list cache
+    print "Step 1: Clearing spell list cache...\n";
+    clearSpellListCache();
+
+    # Step 2: Get spell list for each class
+    print "Step 2: Pulling spell lists for each class...\n";
+    my $classIndex = 0; #Starts with index 0 for bard
+    foreach my $classUrl (@spellListUrls) { # For each value in the array, do something
+      my $class = $classList[$classIndex];
+      print color("green"),"Pulling spell list for: $class\n", color("reset");
+      #Add error handling so that if an error occurs, it skips to the next class
+      eval { getSpellList($classIndex); };
+      if ($@) {
+        print color("red"),"Error pulling spell list for ($class): $@\n", color("reset");
+        print color("red"),"Skipping to next class...\n", color("reset");
+        next;
+      }
+      $classIndex++;
+    }
+    
+    # Step 3: Convert all spell names to links
+    print "Step 3: Converting spell names in spell list files to spell links...\n";
+    $classIndex = 0; #Starts with index 0 for bard
+    foreach my $className (@classList) { # For each value in the array, do something
+      print "Converting spell names in $className spell list...\n";
+      #Modify the $className variable to match the file name format. (i.e. shadow_knight)
+      $className =~ s/ /_/g;
+      $className = lc($className);
+      
+      print "Debug: Class name: $className\n";
+      #include error handling so that if an error occurs, it skips to the next class name
+      eval { convertSpellNames("$className"); };
+      if ($@) {
+        print color("red"),"Error: $@\n", color("reset");
+        print color("red"),"Skipping to next class...\n", color("reset");
+        next;
+      }
+      $classIndex++;
+    }
+
   } elsif (lc($listScope) eq "bard") {
-    my @data = getWebPageData($bardSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(0); #bard
   } elsif (lc($listScope) eq "beastlord") {
-    my @data = getWebPageData($beastlordSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(1); #beastlord
   } elsif (lc($listScope) eq "berserker") {
-    my @data = getWebPageData($berserkerSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(2); #berserker
   } elsif (lc($listScope) eq "cleric") {
-    my @data = getWebPageData($clericSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(3); #cleric
   } elsif (lc($listScope) eq "druid") {
-    my @data = getWebPageData($druidSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(4); #druid
   } elsif (lc($listScope) eq "enchanter") {
-    my @data = getWebPageData($enchanterSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(5); #enchanter
   } elsif (lc($listScope) eq "magician") {
-    my @data = getWebPageData($magicianSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(6); #magician
   } elsif (lc($listScope) eq "monk") {
-    my @data = getWebPageData($monkSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(7); #monk
   } elsif (lc($listScope) eq "necromancer") {
-    my @data = getWebPageData($necromancerSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(8); #necromancer
   } elsif (lc($listScope) eq "paladin") {
-    my @data = getWebPageData($paladinSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(9); #paladin
   } elsif (lc($listScope) eq "ranger") {
-    my @data = getWebPageData($rangerSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(10); #ranger
   } elsif (lc($listScope) eq "rogue") {
-    my @data = getWebPageData($rogueSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(11); #rogue
   } elsif (lc($listScope) eq "shadow_knight") {
-    my @data = getWebPageData($shadowKnightSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(12); #shadow_knight
   } elsif (lc($listScope) eq "shaman") {
-    my @data = getWebPageData($shamanSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(13); #shaman
   } elsif (lc($listScope) eq "warrior") {
-    my @data = getWebPageData($warriorSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(14); #warrior
   } elsif (lc($listScope) eq "wizard") {
-    my @data = getWebPageData($wizardSpellListURL);
-
-    @spellNames = ();
-    @spellClass = ();
-    @spellLevel = ();
-    @spellMana = ();
-    @spellSkill = ();
-    @spellTargetType = ();
-    @spellID = ();
-
-
-    foreach my $table (@data) {
-        foreach my $row (@$table) {
-            print "----------------------------------------\n";
-            if (defined $row->{'Name'}) {
-              push @spellNames, $row->{'Name'};
-              print "Name: $spellNames[-1]\n";
-              
-            }
-            if (defined $row->{'Class'}) {
-              push @spellClass, $row->{'Class'};
-              print "Class: $spellClass[-1]\n";
-            }
-            if (defined $row->{'Level'}) {
-              push @spellLevel, $row->{'Level'};
-              print "Level: $spellLevel[-1]\n";
-            }
-            if (defined $row->{'Mana'}) {
-              push @spellMana, $row->{'Mana'};
-              print "Mana: $spellMana[-1]\n";
-            }
-            if (defined $row->{'Skill'}) {
-              push @spellSkill, $row->{'Skill'};
-              print "Skill: $spellSkill[-1]\n";
-            }
-            if (defined $row->{'Target Type'}) {
-              push @spellTargetType, $row->{'Target Type'};
-              print "Target Type: $spellTargetType[-1]\n";
-            }
-            if (defined $row->{'Spell ID'}) {
-              push @spellID, $row->{'Spell ID'};
-              print "Spell ID: $spellID[-1]\n";
-            }
-        }
-        $spellCount = @spellNames;
-    }
+    getSpellList(15); #wizard
   } else {
     print "Invalid class name.\n";
     print "Press any key to exit...\n";
     <STDIN>;
   }
 
-  my $headerRow = "| Spell Name || Mana || Skill || Target Type";
-  #count the number of occurances of "||" in $headerRow and subtract one to get the number of columns
-  $headerCount = () = $headerRow =~ /\|\|/g;
-  $headerCount++; #add one to account for the first column
-  my @output = ("==Spells==",
-                "{| class=\"wikitable\"\t",
-                "|-");
-  my $outputRow = "";
-
-  my $currentLevel = 0;
-  for (my $i = 0; $i < $spellCount; $i++) {
-    
-    if ($spellLevel[$i] > $currentLevel) {
-      $currentLevel = $spellLevel[$i];
-      push @output, "! colspan=\"$headerCount\" | '''Level $currentLevel'''";
-      push @output, "|-";
-      push @output, $headerRow;
-      push @output, "|-";
-    }
-    $outputRow = "|{{$spellNames[$i]}} || $spellMana[$i] || $spellSkill[$i] || $spellTargetType[$i]";
-    push @output, $outputRow;
-    push @output, "|-";
-  }
-
-  push @output, "|}";
-
-  my $outputString = join("\n", @output);
-
-  print "Saving new file...\n";
-  #Save to a new file in the root directory with a name matching the class name and "_spell_list.txt"
-  my $fileName = "$listScope"."_spell_list.txt";
-  $filePath = "$dir/$fileName";
-  open(my $newFile, '>', $filePath) or die "Could not open file '$filePath' $!";
-  print $newFile $outputString;
-  close $newFile;
-  print "File successfully created and saved to $filePath.\n";
+  
 
 }
 

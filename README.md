@@ -12,6 +12,12 @@ The new, modified wiki data is then exported to `<original_file_name>_converted.
 # How To Use
 
 - Ensure you have Perl installed on your machine: https://strawberryperl.com/
+- Install the following dependencies via the terminal:
+```
+cpan LWP::Simple
+cpan HTML::TableExtract
+cpan Term::ANSIColor
+```
 - Place the `WikiConvert.pl` script in a folder of your choice.
 - Open the above perl script in a text editor and change the `$AllaCloneBaseURL` value to match the base url for your alla clone of choice.
 - Adjust the `@itemNameFilters` or `@spellNameFilters` values as desired to filter out any text within [brackets] or {{curlyBraces}} that you do not want converted. Values should all be within the parenthasis, surounded by double quotes and seperated by commas. i.e. `@itemNameFilters = ("Category:", "Filter2", "Filter3");`
