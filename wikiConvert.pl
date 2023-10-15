@@ -172,13 +172,7 @@ sub getSpellList {
 
 sub convertSpellNames {
   my $fileName = shift;
-
-  # Check if "_spell_list.txt" is already present in the file name
-  if ($fileName !~ /_spell_list\.txt$/) {
-    # Append "_spell_list.txt" to the file name
-    $fileName .= "_spell_list.txt";
-  }
-
+  
   # Concatenate the directory path and file name
   $filePath = "$dir/$fileName";
     
