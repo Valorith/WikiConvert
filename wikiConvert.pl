@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use LWP::Simple;
 use HTML::TableExtract;
+use Data::Dumper;
 #use strict;
 use warnings;
 use Cwd;
@@ -229,40 +230,62 @@ foreach my $spellName (@spellNames) {
   my $currentNameIndex = 1;
 
 
-  foreach my $spell (@spellNames) {
+foreach my $spell (@spellNames) {
     my $ua = LWP::UserAgent->new;
     print "[$currentNameIndex/$postFilterSpellNamesLength - " . sprintf("%.1f", ($currentNameIndex/$postFilterSpellNamesLength) * 100) . "%] Searching Alla Clone for spell id for [$spell]...\n";
-    $spell =~ s/ /+/g; #Replace spaces with + for URL
-    my $response = $ua->get("$AllaCloneBaseURL/?a=spells&name=$spell");
+    my $formattedSpellName = $spell;
+    $formattedSpellName =~ s/\+/ /g; #Replace + with space for clean name
+    my $response = $ua->get("$AllaCloneBaseURL/?a=spells&name=$formattedSpellName");
     my $spellId = 0;
     if ($response->is_success) {
       print "Response received...\n";
       my $content = $response->decoded_content;
-      if ($content =~ /spell&id=(\d+)/) {
-          $spellId = $1;
-          print color("green"),"Spell id located [$spellId]...\n", color("reset");
-          push @spellIds, $spellId;
-      } else {
-          print color("red"),"Spell id not located...\n", color("reset");
-          $spellId = 0;
-          push @spellIds, 0;
+      my @detectedNames;
+      my @detectedIDs;
+      while ($content =~ /<a href="\?a=spell&id=(\d+)">([^<]+)<\/a>/g) {
+          push @detectedIDs, $1;
+          push @detectedNames, $2;
+      }
+      #print "Debug: Detected names: ", join(", ", @detectedNames), "\n";
+      #print "Debug: Detected IDs: ", join(", ", @detectedIDs), "\n";
+
+      # Check if the name stored in $spell is equal to any of the detected names, if so, stored the associated @detectedIDs in $spellId
+      my $i = 0;
+      my $nameMatched = 0;
+      foreach my $detectedName (@detectedNames) {
+        #print a debug statement showing the name comparison below
+        #print "Debug: Comparing [$detectedName] to [$spell]\n";
+        if ($detectedName eq $spell) {
+          $spellId = $detectedIDs[$i];
+          print color("green"),"Spell id located [$spellId] for spell [$spell]...\n", color("reset");
+          $nameMatched = 1;
+          last;
+        }
+        $i++;
+      }
+      if (!$nameMatched) {
+        print color("red"),"Spell id not located for spell [$spell]...\n", color("reset");
+        $spellId = 0;
       }
     } else {
       print color("red"),"Response not received...\n", color("reset");
-      push @spellIds, 0;
+      $spellId = 0;
     }
+    push @spellIds, $spellId;
     $currentNameIndex++;
-    $spellId = 0;
     print "----------------------------------------\n";
-  }
+}
 
   print "Replacing spell names with Alla Clone links...\n";
   my $i = 0;
   foreach my $spellName (@spellNames) {
-    $spellName =~ s/\+/ /g; #Replace + with space for clean name
+    my $adjustedSpellName = $spellName;
+    $adjustedSpellName =~ s/\+/ /g; #Replace + with space for clean name
     my $spellID = $spellIds[$i];
-    printf "Replacing spell [$spellName]($spellID) with [https:alla.clumsysworld.com/?a=spell&id=$spellID $spellName\]...\n";
-    $text =~ s/\{\{($spellName)\}\}/\[https:\/\/alla.clumsysworld.com\/?a=spell&id=$spellID $spellName\]/g;
+    if ($spellID > 0) {
+      printf "Replacing spell [$adjustedSpellName]($spellID) with [https:alla.clumsysworld.com/?a=spell&id=$spellID $adjustedSpellName\]...\n";
+      $text =~ s/\{\{($spellName)\}\}/\[https:\/\/alla.clumsysworld.com\/?a=spell&id=$spellID $adjustedSpellName\]/g;
+    }
     $i++;
   }
 
