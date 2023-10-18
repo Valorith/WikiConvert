@@ -1,7 +1,6 @@
 #!/usr/bin/perl
 use LWP::Simple;
 use HTML::TableExtract;
-use Data::Dumper;
 #use strict;
 use warnings;
 use Cwd;
