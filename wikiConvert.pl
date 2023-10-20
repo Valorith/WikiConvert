@@ -170,8 +170,119 @@ sub getSpellList {
 
 }
 
+sub convertItemNames {
+  
+  print "Please enter the file name for your .txt document (within this directory): ";
+  my $fileName = <>;
+  chomp $fileName;
+  my $text;
+
+  # Concatenate the directory path and file name
+  $filePath = "$dir/$fileName";
+
+  print "File path is: $filePath\n";
+
+  if (-e $filePath && -f $filePath) {
+    # File exists and is a regular file
+    print "Opening file...\n";
+    sysopen(our $file, $filePath, 2) or die "Could not open file $filePath: $!";
+    $text = do {local $/; <$file>};
+    close $file;
+    } else {
+        # File does not exist or is not a regular file
+        die "$filePath does not exist or is not a regular file";
+    }
+
+  
+  print "Searching for item names...\n";
+  @itemNames = $text =~ /\[\[(.*?)\]\]/g;
+  
+  our $preFilterItemNamesLength = @itemNames;
+  print "[$preFilterItemNamesLength] items detected...\n";
+
+  print "Filtering detected names...\n";
+  our $filterCount = @itemNameFilters;
+  print "There are currently [$filterCount] filters active...\n";
+  # Apply the name filter to the itemNames array.
+  
+  my @updatedItemNames;
+  # Iterate through the item names
+  foreach my $itemName (@itemNames) {
+      my $match = 0;
+      # Iterate through the name filters
+      foreach my $nameFilter (@itemNameFilters) {
+          # Convert both strings to lowercase for case-insensitivity
+          our $LCnameFilter = lc($nameFilter);
+          our $LCitemName = lc($itemName);
+          # Check if the name filter is found within the item name
+          if ($LCitemName =~ /$LCnameFilter/) {
+              $match = 1;
+              last;
+          }
+      }
+      if (!$match){
+          push @updatedItemNames, $itemName;
+      }
+  }
+  @itemNames = @updatedItemNames;
+
+  $postFilterItemNamesLength = @itemNames;
+  print "[" . ($preFilterItemNamesLength - $postFilterItemNamesLength) . "] items filtered from the item list...\n";
+
+  #Search for each item in turn using the Alla clone URL pattern
+  print "Searching for item IDs...\n";
+
+  my $currentNameIndex = 1;
+
+
+  foreach my $item (@itemNames) {
+    my $ua = LWP::UserAgent->new;
+    print "[$currentNameIndex/$postFilterItemNamesLength - " . sprintf("%.1f", ($currentNameIndex/$postFilterItemNamesLength) * 100) . "%] Searching Alla Clone for item id for [$item]...\n";
+    my $response = $ua->get("$AllaCloneBaseURL/?a=items_search&&a=items&iname=$item&iclass=0&irace=0&islot=0&istat1=&istat1comp=%3E%3D&istat1value=&istat2=&istat2comp=%3E%3D&istat2value=&iresists=&iresistscomp=%3E%3D&iresistsvalue=&iheroics=&iheroicscomp=%3E%3D&iheroicsvalue=&imod=&imodcomp=%3E%3D&imodvalue=&itype=-1&iaugslot=0&ieffect=&iminlevel=0&ireqlevel=0&inodrop=0&iavailability=0&iavaillevel=0&ideity=0&isearch=1");
+    my $itemId = 0;
+    if ($response->is_success) {
+      print "Response received...\n";
+      my $content = $response->decoded_content;
+      if ($content =~ /item&id=(\d+)/) {
+          $itemId = $1;
+          print color("green"),"Item id located [$itemId]...\n", color("reset");
+          push @itemIds, $itemId;
+      } else {
+          print color("red"),"Item id not located...\n", color("reset");
+          $itemId = 0;
+          push @itemIds, 0;
+      }
+    } else {
+      print color("red"),"Response not received...\n", color("reset");
+      push @itemIds, 0;
+    }
+    $currentNameIndex++;
+    $itemId = 0;
+    print "----------------------------------------\n";
+  }
+
+  print "Replacing item names with Alla Clone links...\n";
+  my $i = 0;
+  foreach my $item (@itemNames) {
+    $text =~ s/\[\[$item\]\]/\[https:\/\/alla.clumsysworld.com\/?a=item&id=$itemIds[$i] $item\]/g;
+    $i++;
+  }
+
+
+  print "Saving new file...\n";
+  my $newFilePath = substr($filePath, 0, rindex($filePath, '.')) . "_converted.txt";
+  sysopen(my $newFile, $newFilePath, O_RDWR|O_CREAT|O_EXCL) or die "Could not create file $newFilePath: $!";
+  print $newFile $text;
+  close $newFile;
+
+  #Provide a success message
+  print "File successfully converted and saved to $newFilePath.\n";
+
+}
+
 sub convertSpellNames {
-  my $fileName = shift;
+  my $fileName = shift;   
+  my $text;
   
   # Concatenate the directory path and file name
   $filePath = "$dir/$fileName";
@@ -299,6 +410,164 @@ foreach my $spell (@spellNames) {
   print "File successfully converted and saved to $newFilePath.\n";
 }
 
+sub convertResearchRecipes {
+   print "Please enter the file name for your .txt document (within this directory): ";
+  my $fileName = <>;
+  chomp $fileName;
+  my $text;
+
+  # Concatenate the directory path and file name
+  $filePath = "$dir/$fileName";
+
+  print "File path is: $filePath\n";
+
+  if (-e $filePath && -f $filePath) {
+    # File exists and is a regular file
+    print "Opening file...\n";
+    sysopen(our $file, $filePath, 2) or die "Could not open file $filePath: $!";
+    $text = do {local $/; <$file>};
+    close $file;
+    } else {
+        # File does not exist or is not a regular file
+        die "$filePath does not exist or is not a regular file";
+    }
+
+  
+  print "Searching for item names within Victoria Recipes...\n";
+
+  # Replace "] " with "] [["
+  $text =~ s/\] /] \[\[/g;
+
+  # Replace " + " with "]] + [["
+  $text =~ s/ \+ /]] + \[\[/g;
+
+  # Replace " = " with "]] = [["
+  $text =~ s/ = /]] = \[\[/g;
+
+  # Add "]]" to the end of every line with a "+"
+  $text =~ s/(.*\+.*)/$1]]/g;
+
+  #Locate all item names within [[brackets]]
+  @itemNames = $text =~ /\[\[(.*?)\]\]/g;
+  
+  our $preFilterItemNamesLength = @itemNames;
+  print "[$preFilterItemNamesLength] items detected...\n";
+
+  print "Filtering detected names...\n";
+  our $filterCount = @itemNameFilters;
+  print "There are currently [$filterCount] filters active...\n";
+  # Apply the name filter to the itemNames array.
+  
+  my @updatedItemNames;
+  # Iterate through the item names
+  foreach my $itemName (@itemNames) {
+      my $match = 0;
+      # Iterate through the name filters
+      foreach my $nameFilter (@itemNameFilters) {
+          # Convert both strings to lowercase for case-insensitivity
+          our $LCnameFilter = lc($nameFilter);
+          our $LCitemName = lc($itemName);
+          # Check if the name filter is found within the item name
+          if ($LCitemName =~ /$LCnameFilter/) {
+              $match = 1;
+              last;
+          }
+      }
+      if (!$match){
+          push @updatedItemNames, $itemName;
+      }
+  }
+  @itemNames = @updatedItemNames;
+
+  $postFilterItemNamesLength = @itemNames;
+  print "[" . ($preFilterItemNamesLength - $postFilterItemNamesLength) . "] items filtered from the item list...\n";
+
+  #Search for each item in turn using the Alla clone URL pattern
+  print "Searching for item IDs...\n";
+
+  my $currentNameIndex = 1;
+
+
+  foreach my $item (@itemNames) {
+    my $ua = LWP::UserAgent->new;
+    print "[$currentNameIndex/$postFilterItemNamesLength - " . sprintf("%.1f", ($currentNameIndex/$postFilterItemNamesLength) * 100) . "%] Searching Alla Clone for item id for [$item]...\n";
+    my $response = $ua->get("$AllaCloneBaseURL/?a=items_search&&a=items&iname=$item&iclass=0&irace=0&islot=0&istat1=&istat1comp=%3E%3D&istat1value=&istat2=&istat2comp=%3E%3D&istat2value=&iresists=&iresistscomp=%3E%3D&iresistsvalue=&iheroics=&iheroicscomp=%3E%3D&iheroicsvalue=&imod=&imodcomp=%3E%3D&imodvalue=&itype=-1&iaugslot=0&ieffect=&iminlevel=0&ireqlevel=0&inodrop=0&iavailability=0&iavaillevel=0&ideity=0&isearch=1");
+    my $itemId = 0;
+    if ($response->is_success) {
+      print "Response received...\n";
+      my $content = $response->decoded_content;
+      if ($content =~ /item&id=(\d+)/) {
+          $itemId = $1;
+          print color("green"),"Item id located [$itemId]...\n", color("reset");
+          push @itemIds, $itemId;
+      } else {
+          print color("red"),"Item id not located...\n", color("reset");
+          $itemId = 0;
+          push @itemIds, 0;
+      }
+    } else {
+      print color("red"),"Response not received...\n", color("reset");
+      push @itemIds, 0;
+    }
+    $currentNameIndex++;
+    $itemId = 0;
+    print "----------------------------------------\n";
+  }
+
+  print "Generate text rows for a new text document formatted for the wiki...\n";
+  my @rows;
+  push @rows, "==Crafted Spells==";
+  push @rows, "{| class=\"wikitable\"";
+  push @rows, "|-";
+  push @rows, "| Scribestone || Energy Focus || Power Component || Required Spell or Tome || Product  || Cost";
+  push @rows, "|-";
+  my $recipeIndex = 0;
+  my $itemIndex = 0;
+  my $itemCount = @itemNames;
+  my $recipeCount = $itemCount / 5;
+  
+  #iterate through from 0 to $rowCount - 1
+  for ($recipeIndex = 0; $recipeIndex < $recipeCount; $recipeIndex++) {
+    my $row = "|";
+    #iterate through from 0 to 3
+    for (my $i = 0; $i < 5; $i++) {
+      my $itemIndex = ($recipeIndex * 5) + $i;
+      my $itemName = $itemNames[$itemIndex];
+      my $itemId = $itemIds[$itemIndex];
+      if ($itemId and $itemId >= 1) {
+        print "Debug: Item Index: $itemIndex, Item Name: $itemName, Item ID: $itemId\n";
+        $row .= "[https://alla.clumsysworld.com/?a=item&id=$itemId $itemName] || ";
+      } else {
+        $row .= "$itemName || ";
+      }
+
+      ##After the 5th item is added to the row, add a "|| " to the end of the row
+      #if ($i == 4) {
+        #$row .= "|| ";
+      #}
+
+      $itemIndex++;
+    }
+    print "Debug: Row: $row\n";
+    push @rows, $row;
+    push @rows, "|-";
+  }
+  
+  push @rows, "|}";
+
+  my $outputString = join("\n", @rows);
+  $text = $outputString;
+
+  print "Saving new file...\n";
+  my $newFilePath = substr($filePath, 0, rindex($filePath, '.')) . "_converted.txt";
+  sysopen(my $newFile, $newFilePath, O_RDWR|O_CREAT|O_EXCL) or die "Could not create file $newFilePath: $!";
+  print $newFile $text;
+  close $newFile;
+
+  #Provide a success message
+  print "File successfully converted and saved to $newFilePath.\n";
+}
+
 sub getWebPageData {
   my $url = shift;
 
@@ -392,118 +661,14 @@ sub getWebPageData {
 # Get the current working directory
 $dir = getcwd();
 
-print "Would you like to convert names into links for Items, NPCs, Spells, Zones? If you want to use a different tool, state Other. (Enter 'Items', 'NPCs', 'Spells', 'Zones' or 'Other'): ";
+print "Would you like to convert names into links for Items, NPCs, Spells, Research, Zones? If you want to use a different tool, state Other. (Enter 'Items', 'NPCs', 'Spells', 'Zones', 'Research' or 'Other'): ";
 my $linkType = <>;
 chomp $linkType;
 
-our $text;
-
 if (lc($linkType) eq "items") {
 
-  print "Please enter the file name for your .txt document (within this directory): ";
-  my $fileName = <>;
-  chomp $fileName;
-
-  # Concatenate the directory path and file name
-  $filePath = "$dir/$fileName";
-
-  print "File path is: $filePath\n";
-
-  if (-e $filePath && -f $filePath) {
-    # File exists and is a regular file
-    print "Opening file...\n";
-    sysopen(our $file, $filePath, 2) or die "Could not open file $filePath: $!";
-    $text = do {local $/; <$file>};
-    close $file;
-    } else {
-        # File does not exist or is not a regular file
-        die "$filePath does not exist or is not a regular file";
-    }
-
+  convertItemNames($fileName);
   
-  print "Searching for item names...\n";
-  @itemNames = $text =~ /\[\[(.*?)\]\]/g;
-  
-  our $preFilterItemNamesLength = @itemNames;
-  print "[$preFilterItemNamesLength] items detected...\n";
-
-  print "Filtering detected names...\n";
-  our $filterCount = @itemNameFilters;
-  print "There are currently [$filterCount] filters active...\n";
-  # Apply the name filter to the itemNames array.
-  
-  my @updatedItemNames;
-  # Iterate through the item names
-foreach my $itemName (@itemNames) {
-    my $match = 0;
-    # Iterate through the name filters
-    foreach my $nameFilter (@itemNameFilters) {
-        # Convert both strings to lowercase for case-insensitivity
-        our $LCnameFilter = lc($nameFilter);
-        our $LCitemName = lc($itemName);
-        # Check if the name filter is found within the item name
-        if ($LCitemName =~ /$LCnameFilter/) {
-            $match = 1;
-            last;
-        }
-    }
-    if (!$match){
-        push @updatedItemNames, $itemName;
-    }
-}
-@itemNames = @updatedItemNames;
-
-  $postFilterItemNamesLength = @itemNames;
-  print "[" . ($preFilterItemNamesLength - $postFilterItemNamesLength) . "] items filtered from the item list...\n";
-
-  #Search for each item in turn using the Alla clone URL pattern
-  print "Searching for item IDs...\n";
-
-  my $currentNameIndex = 1;
-
-
-  foreach my $item (@itemNames) {
-    my $ua = LWP::UserAgent->new;
-    print "[$currentNameIndex/$postFilterItemNamesLength - " . sprintf("%.1f", ($currentNameIndex/$postFilterItemNamesLength) * 100) . "%] Searching Alla Clone for item id for [$item]...\n";
-    my $response = $ua->get("$AllaCloneBaseURL/?a=items_search&&a=items&iname=$item&iclass=0&irace=0&islot=0&istat1=&istat1comp=%3E%3D&istat1value=&istat2=&istat2comp=%3E%3D&istat2value=&iresists=&iresistscomp=%3E%3D&iresistsvalue=&iheroics=&iheroicscomp=%3E%3D&iheroicsvalue=&imod=&imodcomp=%3E%3D&imodvalue=&itype=-1&iaugslot=0&ieffect=&iminlevel=0&ireqlevel=0&inodrop=0&iavailability=0&iavaillevel=0&ideity=0&isearch=1");
-    my $itemId = 0;
-    if ($response->is_success) {
-      print "Response received...\n";
-      my $content = $response->decoded_content;
-      if ($content =~ /item&id=(\d+)/) {
-          $itemId = $1;
-          print color("green"),"Item id located [$itemId]...\n", color("reset");
-          push @itemIds, $itemId;
-      } else {
-          print color("red"),"Item id not located...\n", color("reset");
-          $itemId = 0;
-          push @itemIds, 0;
-      }
-    } else {
-      print color("red"),"Response not received...\n", color("reset");
-      push @itemIds, 0;
-    }
-    $currentNameIndex++;
-    $itemId = 0;
-    print "----------------------------------------\n";
-  }
-
-  print "Replacing item names with Alla Clone links...\n";
-  my $i = 0;
-  foreach my $item (@itemNames) {
-    $text =~ s/\[\[$item\]\]/\[https:\/\/alla.clumsysworld.com\/?a=item&id=$itemIds[$i] $item\]/g;
-    $i++;
-  }
-
-
-  print "Saving new file...\n";
-  my $newFilePath = substr($filePath, 0, rindex($filePath, '.')) . "_converted.txt";
-  sysopen(my $newFile, $newFilePath, O_RDWR|O_CREAT|O_EXCL) or die "Could not create file $newFilePath: $!";
-  print $newFile $text;
-  close $newFile;
-
-  #Provide a success message
-  print "File successfully converted and saved to $newFilePath.\n";
 } elsif (lc($linkType) eq "spells") {
 
   print "Please enter the file name for your .txt document (within this directory): ";
@@ -512,6 +677,10 @@ foreach my $itemName (@itemNames) {
 
   convertSpellNames($fileName);
 
+
+} elsif ((lc($linkType) eq "research")) {
+
+  convertResearchRecipes($fileName);
 
 } elsif (!(lc($linkType) eq "other")) {
   #Provide a failure message
@@ -560,8 +729,6 @@ if (lc($linkType) eq "spelllist") { #Determine scope of conversion: All Classes 
   print "Do you want to generate a spell list for All classes (all) or a specific class (class_name: i.e. shadow_knight)?: ";
   my $listScope = <>;
   chomp $listScope;
-
-  
 
 
 
