@@ -1,31 +1,37 @@
-[Thu Oct 19 17:18:25 2023] You say, 'Hail, Victoria'
-[Thu Oct 19 17:18:25 2023] Good day to you, Valorith. I can create new spells for you. Please choose a level range: [51 52], [53 54], [55 56], [57 58], or [59 60].
-[Thu Oct 19 17:18:28 2023] You say, '51 52'
-[Thu Oct 19 17:18:28 2023] ....::::::::: | 51 - 52 | Spells & Tomes | :::::::::....
-[Thu Oct 19 17:18:28 2023] Minor Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Insidious Retrogression = Spell: Degeneration
-[Thu Oct 19 17:18:28 2023] Minor Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Feign Death = Spell: Comatose
-[Thu Oct 19 17:18:29 2023] You say, '53 54'
-[Thu Oct 19 17:18:29 2023] ....::::::::: | 53 - 54 | Spells & Tomes | :::::::::....
-[Thu Oct 19 17:18:29 2023] Lesser Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Insidious Retrogression = Spell: Succussion of Shadows
-[Thu Oct 19 17:18:29 2023] Lesser Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Torbas' Poison Blast = Spell: Torbas' Venom Blast
-[Thu Oct 19 17:18:29 2023] Lesser Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Dark Soul = Spell: Imprecation
-[Thu Oct 19 17:18:30 2023] You say, '55 56'
-[Thu Oct 19 17:18:30 2023] ....::::::::: | 55 - 56 | Spells & Tomes | :::::::::....
-[Thu Oct 19 17:18:30 2023] Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Augment Death = Spell: Augmentation of Death
-[Thu Oct 19 17:18:30 2023] Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Chill Bones = Spell: Conglaciation of Bone
-[Thu Oct 19 17:18:30 2023] Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Degeneration = Spell: Crippling Claudication
-[Thu Oct 19 17:18:30 2023] Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Dread of Night = Spell: Eidolon Voice
-[Thu Oct 19 17:18:31 2023] You say, '57 58'
-[Thu Oct 19 17:18:31 2023] ....::::::::: | 57 - 58 | Spells & Tomes | :::::::::....
-[Thu Oct 19 17:18:31 2023] Greater Scribestone + Depleted Energy Focus I + Power Amplifier + Spell: Sedulous Subversion = Spell: Mind Wrack
-[Thu Oct 19 17:18:31 2023] Greater Scribestone + Depleted Energy Focus IV + Power Stabilizer + Spell: Trepidation = Spell: Unholy Voice
-[Thu Oct 19 17:18:31 2023] Greater Scribestone + Depleted Energy Focus III + Power Stabilizer + Spell: Ward of Calliav = Spell: Guard of Calliav
-[Thu Oct 19 17:18:31 2023] Greater Scribestone + Depleted Energy Focus III + Power Stabilizer + Spell: Bounce = Spell: Reflect
-[Thu Oct 19 17:18:32 2023] You say, '59 60'
-[Thu Oct 19 17:18:32 2023] ....::::::::: | 59 - 60 | Spells & Tomes | :::::::::....
-[Thu Oct 19 17:18:32 2023] Major Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Demi Lich = Spell: Arch Lich
-[Thu Oct 19 17:18:32 2023] Major Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Comatose = Spell: Death Peace
-[Thu Oct 19 17:18:32 2023] Major Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Pyrocruor = Spell: Funeral Pyre of Kelador
-[Thu Oct 19 17:18:32 2023] Major Scribestone + Depleted Energy Focus I + Power Amplifier + Spell: Auspice = Spell: Zevfeer's Theft of Vitae
-[Thu Oct 19 17:18:32 2023] Major Scribestone + Depleted Energy Focus X + Ancient Text + Spell: Torbas' Venom Blast = Ancient: Lifebane
-[Thu Oct 19 17:18:32 2023] Major Scribestone + Depleted Energy Focus X + Ancient Text + Spell: Arch Lich = Ancient: Master of Death
+[Thu Oct 19 22:04:19 2023] You say, 'Hail, Victoria'
+[Thu Oct 19 22:04:20 2023] Good day to you, Gwen. I can create new spells for you. Please choose a level range: [51 52], [53 54], [55 56], [57 58], or [59 60].
+[Thu Oct 19 22:04:24 2023] You say, '51 52'
+[Thu Oct 19 22:04:24 2023] ....::::::::: | 51 - 52 | Spells & Tomes | :::::::::....
+[Thu Oct 19 22:04:24 2023] Minor Scribestone + Depleted Energy Focus I + Power Amplifier + Spell: Blessing of Faith = Spell: Aura of Faith
+[Thu Oct 19 22:04:24 2023] Minor Scribestone + Depleted Energy Focus I + Power Amplifier + Spell: Abolish Poison = Spell: Pureblood
+[Thu Oct 19 22:04:24 2023] Minor Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Turning of the Unnatural = Spell: Epitaph of Life
+[Thu Oct 19 22:04:25 2023] You say, '53 54'
+[Thu Oct 19 22:04:25 2023] ....::::::::: | 53 - 54 | Spells & Tomes | :::::::::....
+[Thu Oct 19 22:04:25 2023] Lesser Scribestone + Depleted Energy Focus X + Power Amplifier + Spell: Strike of Naltron = Spell: Strike of Marzin
+[Thu Oct 19 22:04:25 2023] Lesser Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Retribution = Spell: Mark of Retribution
+[Thu Oct 19 22:04:25 2023] Lesser Scribestone + Depleted Energy Focus V + Power Stabilizer + Spell: Remove Curse = Spell: Remove Greater Curse
+[Thu Oct 19 22:04:25 2023] Lesser Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Guard of Vie = Spell: Protection of Vie
+[Thu Oct 19 22:04:28 2023] You say, '55 56'
+[Thu Oct 19 22:04:28 2023] ....::::::::: | 55 - 56 | Spells & Tomes | :::::::::....
+[Thu Oct 19 22:04:28 2023] Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Hammer of Requital = Spell: Hammer of Judgment
+[Thu Oct 19 22:04:28 2023] Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Reckoning = Spell: Judgment
+[Thu Oct 19 22:04:28 2023] Scribestone + Depleted Energy Focus II + Power Stabilizer + Spell: Yaulp IV = Spell: Yaulp V
+[Thu Oct 19 22:04:28 2023] Scribestone + Depleted Energy Focus II + Power Stabilizer + Spell: Dread of Night = Spell: Cower the Dead
+[Thu Oct 19 22:04:29 2023] You say, '57 58'
+[Thu Oct 19 22:04:29 2023] ....::::::::: | 57 - 58 | Spells & Tomes | :::::::::....
+[Thu Oct 19 22:04:29 2023] Greater Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Armor of the Faithful = Spell: Blessed Armor of the Risen
+[Thu Oct 19 22:04:29 2023] Greater Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Divine Light = Spell: Ethereal Light
+[Thu Oct 19 22:04:29 2023] Greater Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Hammer of Judgment = Spell: Hammer of Divinity
+[Thu Oct 19 22:04:29 2023] Greater Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Ward of the Divine = Spell: Ward of Rebuke
+[Thu Oct 19 22:04:30 2023] You say, '59 60'
+[Thu Oct 19 22:04:30 2023] ....::::::::: | 59 - 60 | Spells & Tomes | :::::::::....
+[Thu Oct 19 22:04:30 2023] Major Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Remedy = Spell: Ethereal Remedy
+[Thu Oct 19 22:04:30 2023] Major Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Trepidation = Spell: Deistic Voice
+[Thu Oct 19 22:04:30 2023] Major Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Fortitude = Spell: Aegolism
+[Thu Oct 19 22:04:30 2023] Major Scribestone + Depleted Energy Focus X + Power Amplifier + Spell: Aegolism = Spell: Blessing of Aegolism
+[Thu Oct 19 22:04:30 2023] Major Scribestone + Depleted Energy Focus I + Power Amplifier + Spell: Celestial Elixir = Spell: Ethereal Elixir
+[Thu Oct 19 22:04:30 2023] Major Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Hammer of Divinity = Spell: Hammer of Souls
+[Thu Oct 19 22:04:30 2023] Major Scribestone + Depleted Energy Focus I + Power Amplifier + Spell: Naltron's Mark = Spell: Marzin's Mark
+[Thu Oct 19 22:04:30 2023] Major Scribestone + Depleted Energy Focus X + Ancient Text + Spell: Blessing of Aegolism = Ancient: Gift of Aegolism
+[Thu Oct 19 22:04:30 2023] Major Scribestone + Depleted Energy Focus X + Ancient Text + Spell: Blessed Armor of the Risen = Ancient: High Priest's Bulwark
+[Thu Oct 19 22:04:30 2023] Major Scribestone + Depleted Energy Focus VIII + Power Amplifier + Tome of Fearless Discipline = Spell: Divine Confidence

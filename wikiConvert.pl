@@ -621,10 +621,12 @@ sub convertResearchRecipes {
           #remove "Spell: " from the beginning of the spell name
           my $spellName = $itemName;
           $spellName =~ s/Spell: //g;
+          #remove "Song: " from the beginning of the spell name
+          $spellName =~ s/Song: //g;
           my $spellID = getSpellIdByName($spellName);
           $row .= "[https:alla.clumsysworld.com/?a=spell&id=$spellID $spellName] || "
         } else {
-          print "Debug: Item Index: $itemIndex, Item Name: $itemName, Item ID: $itemId\n";
+          #print "Debug: Item Index: $itemIndex, Item Name: $itemName, Item ID: $itemId\n";
           $row .= "[https://alla.clumsysworld.com/?a=item&id=$itemId $itemName] || ";
         }
       } else {
@@ -632,7 +634,7 @@ sub convertResearchRecipes {
       }
       $itemIndex++;
     }
-    print "Debug: Row: $row\n";
+    #print "Debug: Row: $row\n";
     $row =~ s/https:alla/https:\/\/alla/g;
     push @rows, $row;
     push @rows, "|-";
@@ -722,7 +724,7 @@ sub getWebPageData {
         #print a debug statement showing the header and row count comparison
         my $tempHeaderCount = @$headers;
         my $tempRowCount = @$row;
-        print "Debug: Header Count: $tempHeaderCount, Row Count: ", $tempRowCount, "\n";
+        #print "Debug: Header Count: $tempHeaderCount, Row Count: ", $tempRowCount, "\n";
         if ($headers && @$headers == @$row) {
           #print "Debug: Table($tableIndex), Row($rowIndex): ", join(", ", grep { defined && $_ ne "" } @$row), "\n";
           @row_data{@$headers} = @$row;
@@ -860,7 +862,7 @@ if (lc($linkType) eq "spelllist") { #Determine scope of conversion: All Classes 
       $className =~ s/ /_/g;
       $className = lc($className);
       
-      print "Debug: Class name: $className\n";
+      #print "Debug: Class name: $className\n";
       #include error handling so that if an error occurs, it skips to the next class name
       eval { convertSpellNames("$className"); };
       if ($@) {
