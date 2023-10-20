@@ -1,0 +1,33 @@
+[Fri Oct 20 12:15:46 2023] You say, 'Hail, Victoria'
+[Fri Oct 20 12:15:46 2023] Good day to you, Dagara. I can create new spells for you. Please choose a level range: [51 52], [53 54], [55 56], [57 58], or [59 60].
+[Fri Oct 20 12:15:52 2023] You say, '51 52'
+[Fri Oct 20 12:15:52 2023] ....::::::::: | 51 - 52 | Spells & Tomes | :::::::::....
+[Fri Oct 20 12:15:52 2023] Minor Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Siphon Strength = Spell: Abduction of Strength
+[Fri Oct 20 12:15:52 2023] Minor Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Scream of Death = Spell: Mental Corruption
+[Fri Oct 20 12:15:52 2023] Minor Scribestone + Depleted Energy Focus III + Power Stabilizer + Spell: Feign Death = Spell: Comatose
+[Fri Oct 20 12:15:53 2023] You say, '53 54'
+[Fri Oct 20 12:15:53 2023] ....::::::::: | 53 - 54 | Spells & Tomes | :::::::::....
+[Fri Oct 20 12:15:53 2023] Lesser Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Terror of Shadows = Spell: Terror of Death
+[Fri Oct 20 12:15:53 2023] Lesser Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Shroud of Hate = Spell: Torrent of Hate
+[Fri Oct 20 12:15:53 2023] Lesser Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Spear of Pain = Spell: Spear of Plague
+[Fri Oct 20 12:15:53 2023] Lesser Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Dark Temptation = Spell: Call of Darkness
+[Fri Oct 20 12:15:53 2023] Lesser Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Scythe of Darkness = Spell: Scythe of Death
+[Fri Oct 20 12:15:56 2023] You say, '55 56'
+[Fri Oct 20 12:15:56 2023] ....::::::::: | 55 - 56 | Spells & Tomes | :::::::::....
+[Fri Oct 20 12:15:56 2023] Scribestone + Depleted Energy Focus VIII + Power Stabilizer + Spell: Shroud of Death = Tome of Ichor Guard
+[Fri Oct 20 12:15:56 2023] Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Shroud of Undeath = Spell: Shroud of Death
+[Fri Oct 20 12:15:56 2023] Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Voice of Shadows = Spell: Voice of Death
+[Fri Oct 20 12:15:56 2023] Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Shroud of Pain = Spell: Torrent of Pain
+[Fri Oct 20 12:15:56 2023] Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Panic the Dead = Spell: Soulless Fear
+[Fri Oct 20 12:15:57 2023] You say, '57 58'
+[Fri Oct 20 12:15:57 2023] ....::::::::: | 57 - 58 | Spells & Tomes | :::::::::....
+[Fri Oct 20 12:15:57 2023] Greater Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Invoke Fear = Spell: Shadow Voice
+[Fri Oct 20 12:15:57 2023] Greater Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Dark Temptation = Spell: Deathly Temptation
+[Fri Oct 20 12:15:57 2023] Greater Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Abduction of Strength = Spell: Torrent of Fatigue
+[Fri Oct 20 12:15:58 2023] You say, '59 60'
+[Fri Oct 20 12:15:58 2023] ....::::::::: | 59 - 60 | Spells & Tomes | :::::::::....
+[Fri Oct 20 12:15:58 2023] Major Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Terror of Death = Spell: Terror of Terris
+[Fri Oct 20 12:15:58 2023] Major Scribestone + Depleted Energy Focus III + Power Stabilizer + Spell: Comatose = Spell: Death Peace
+[Fri Oct 20 12:15:58 2023] Major Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Bobbing Corpse = Spell: Cloak of the Akheva
+[Fri Oct 20 12:15:58 2023] Major Scribestone + Depleted Energy Focus I + Power Stabilizer + Spell: Voice of Death = Spell: Voice of Terris
+[Fri Oct 20 12:15:58 2023] Major Scribestone + Depleted Energy Focus II + Power Stabilizer + Spell: Diamondskin = Tome of Deflection Discipline

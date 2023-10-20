@@ -1,0 +1,62 @@
+==Crafted Spells==
+{| class="wikitable"
+|-
+! colspan="6"| ....::::::::: | 51 - 52 | Spells & Tomes | :::::::::....
+|-
+| Scribestone || Energy Focus || Power Component || Required Spell or Tome || Product  || Cost
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150108 Minor Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=7645 Spell: Insidious Retrogression] || [https://alla.clumsysworld.com/?a=spell&id=2546 Degeneration] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150108 Minor Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=15366 Spell: Feign Death] || [https://alla.clumsysworld.com/?a=spell&id=3685 Comatose] || 
+|-
+! colspan="6" | ....::::::::: | 53 - 54 | Spells & Tomes | :::::::::....   
+|-
+| Scribestone || Energy Focus || Power Component || Required Spell or Tome || Product  || Cost
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150109 Lesser Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=7645 Spell: Insidious Retrogression] || [https://alla.clumsysworld.com/?a=spell&id=2547 Succussion of Shadows] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150109 Lesser Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=26958 Spell: Torbas' Poison Blast] || [https://alla.clumsysworld.com/?a=spell&id=3572 Torbas' Venom Blast] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150109 Lesser Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=59619 Spell: Dark Soul] || [https://alla.clumsysworld.com/?a=spell&id=4097 Imprecation] || 
+|-
+! colspan="6" | ....::::::::: | 55 - 56 | Spells & Tomes | :::::::::....  
+|-
+| Scribestone || Energy Focus || Power Component || Required Spell or Tome || Product  || Cost
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150110 Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=15661 Spell: Augment Death] || [https://alla.clumsysworld.com/?a=spell&id=1414 Augmentation of Death] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150110 Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=19302 Spell: Chill Bones] || [https://alla.clumsysworld.com/?a=spell&id=2015 Conglaciation of Bone] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150110 Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=7646 Spell: Degeneration] || [https://alla.clumsysworld.com/?a=spell&id=2548 Crippling Claudication] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150110 Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=19202 Spell: Dread of Night] || [https://alla.clumsysworld.com/?a=spell&id=6992 Eidolon Voice] || 
+|-
+! colspan="6" | ....::::::::: | 57 - 58 | Spells & Tomes | :::::::::....  
+|-
+| Scribestone || Energy Focus || Power Component || Required Spell or Tome || Product  || Cost
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150111 Greater Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150123 Power Amplifier] || [https://alla.clumsysworld.com/?a=item&id=19410 Spell: Sedulous Subversion] || [https://alla.clumsysworld.com/?a=spell&id=2549 Mind Wrack] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150111 Greater Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150116 Depleted Energy Focus IV] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=19220 Spell: Trepidation] || [https://alla.clumsysworld.com/?a=spell&id=6980 Unholy Voice] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150111 Greater Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150115 Depleted Energy Focus III] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=150218 Spell: Ward of Calliav] || [https://alla.clumsysworld.com/?a=spell&id=4080 Guard of Calliav] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150111 Greater Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150115 Depleted Energy Focus III] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=150221 Spell: Bounce] || [https://alla.clumsysworld.com/?a=spell&id=4100 Reflect] || 
+|-
+! colspan="6" | ....::::::::: | 59 - 60 | Spells & Tomes | :::::::::....  
+|-
+| Scribestone || Energy Focus || Power Component || Required Spell or Tome || Product  || Cost
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150112 Major Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=19314 Spell: Demi Lich] || [https://alla.clumsysworld.com/?a=spell&id=1416 Arch Lich] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150112 Major Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=59005 Spell: Comatose] || [https://alla.clumsysworld.com/?a=spell&id=5919 Death Peace] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150112 Major Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150248 Power Stabilizer] || [https://alla.clumsysworld.com/?a=item&id=19308 Spell: Pyrocruor] || [https://alla.clumsysworld.com/?a=spell&id=2885 Funeral Pyre of Kelador] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150112 Major Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150113 Depleted Energy Focus I] || [https://alla.clumsysworld.com/?a=item&id=150123 Power Amplifier] || [https://alla.clumsysworld.com/?a=item&id=59019 Spell: Auspice] || [https://alla.clumsysworld.com/?a=spell&id=2550 Zevfeer's Theft of Vitae] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150112 Major Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150122 Depleted Energy Focus X] || [https://alla.clumsysworld.com/?a=item&id=150600 Ancient Text] || [https://alla.clumsysworld.com/?a=item&id=26959 Spell: Torbas' Venom Blast] || [https://alla.clumsysworld.com/?a=spell&id=2115 Ancient: Lifebane] || 
+|-
+|[https://alla.clumsysworld.com/?a=item&id=150112 Major Scribestone] || [https://alla.clumsysworld.com/?a=item&id=150122 Depleted Energy Focus X] || [https://alla.clumsysworld.com/?a=item&id=150600 Ancient Text] || [https://alla.clumsysworld.com/?a=item&id=30416 Spell: Arch Lich] || [https://alla.clumsysworld.com/?a=spell&id=2114 Ancient: Master of Death] || 
+|-
+|}

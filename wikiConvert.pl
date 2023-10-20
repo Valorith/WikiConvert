@@ -671,6 +671,8 @@ sub convertResearchRecipes {
           $spellName =~ s/Spell: //g;
           #remove "Song: " from the beginning of the spell name
           $spellName =~ s/Song: //g;
+          #remove "Tome of " from the beginning of the spell name
+          $spellName =~ s/Tome of //g;
           my $spellID = getSpellIdByName($spellName);
           $row .= "[https:alla.clumsysworld.com/?a=spell&id=$spellID $spellName] || "
         } else {
