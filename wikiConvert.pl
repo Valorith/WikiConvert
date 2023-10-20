@@ -243,28 +243,47 @@ sub convertItemNames {
     if ($response->is_success) {
       print "Response received...\n";
       my $content = $response->decoded_content;
-      if ($content =~ /item&id=(\d+)/) {
-          $itemId = $1;
-          print color("green"),"Item id located [$itemId]...\n", color("reset");
-          push @itemIds, $itemId;
-      } else {
-          print color("red"),"Item id not located...\n", color("reset");
-          $itemId = 0;
-          push @itemIds, 0;
+      #print "Debug: Content: $content\n";
+
+      while ($content =~ /id='(\d+)'>([^<]+)</g) {
+          push @detectedIDs, $1;
+          push @detectedNames, $2;
+      }
+
+      # Check if the name stored in $item is equal to any of the detected names, if so, store the associated @detectedIDs in $itemId
+      my $i = 0;
+      my $nameMatched = 0;
+      foreach my $detectedName (@detectedNames) {
+        #print a debug statement showing the name comparison below
+        #print "Debug: Comparing [$detectedName] to [$item]\n";
+        if ($detectedName eq $item) {
+          $itemId = $detectedIDs[$i];
+          print color("green"),"Item id located [$itemId] for item [$item]...\n", color("reset");
+          $nameMatched = 1;
+          last;
+        }
+        $i++;
+      }
+      if (!$nameMatched) {
+        print color("red"),"Item id not located for item [$item]...\n", color("reset");
+        $itemId = 0;
       }
     } else {
       print color("red"),"Response not received...\n", color("reset");
       push @itemIds, 0;
     }
-    $currentNameIndex++;
-    $itemId = 0;
+    push @itemIds, $itemId;
     print "----------------------------------------\n";
+    $currentNameIndex++;
   }
 
   print "Replacing item names with Alla Clone links...\n";
   my $i = 0;
   foreach my $item (@itemNames) {
-    $text =~ s/\[\[$item\]\]/\[https:\/\/alla.clumsysworld.com\/?a=item&id=$itemIds[$i] $item\]/g;
+    my $itemID = $itemIds[$i];
+    if ($itemID > 0) {
+      $text =~ s/\[\[$item\]\]/\[https:\/\/alla.clumsysworld.com\/?a=item&id=$itemIds[$i] $item\]/g;
+    }
     $i++;
   }
 
@@ -277,6 +296,54 @@ sub convertItemNames {
 
   #Provide a success message
   print "File successfully converted and saved to $newFilePath.\n";
+
+}
+
+sub getSpellIdByName {
+  my $spellName = shift;
+
+  my $ua = LWP::UserAgent->new;
+  print "Searching Alla Clone for spell id for [$spellName]...\n";
+  my $formattedSpellName = $spellName;
+  $formattedSpellName =~ s/\+/ /g; #Replace + with space for clean name
+  my $response = $ua->get("$AllaCloneBaseURL/?a=spells&name=$formattedSpellName");
+  my $spellId = 0;
+  if ($response->is_success) {
+    print "Response received...\n";
+    my $content = $response->decoded_content;
+    my @detectedNames;
+    my @detectedIDs;
+    while ($content =~ /<a href="\?a=spell&id=(\d+)">([^<]+)<\/a>/g) {
+        push @detectedIDs, $1;
+        push @detectedNames, $2;
+    }
+    #print "Debug: Detected names: ", join(", ", @detectedNames), "\n";
+    #print "Debug: Detected IDs: ", join(", ", @detectedIDs), "\n";
+
+    # Check if the name stored in $spell is equal to any of the detected names, if so, stored the associated @detectedIDs in $spellId
+    my $i = 0;
+    my $nameMatched = 0;
+    foreach my $detectedName (@detectedNames) {
+      #print a debug statement showing the name comparison below
+      #print "Debug: Comparing [$detectedName] to [$spell]\n";
+      if ($detectedName eq $spellName) {
+        $spellId = $detectedIDs[$i];
+        print color("green"),"Spell id located [$spellId] for spell [$spellName]...\n", color("reset");
+        $nameMatched = 1;
+        last;
+      }
+      $i++;
+    }
+    if (!$nameMatched) {
+      print color("red"),"Spell id not located for spell [$spellName]...\n", color("reset");
+      $spellId = 0;
+    }
+  } else {
+    print color("red"),"Response not received...\n", color("reset");
+    $spellId = 0;
+  }
+
+  return $spellId;
 
 }
 
@@ -382,7 +449,6 @@ foreach my $spell (@spellNames) {
       $spellId = 0;
     }
     push @spellIds, $spellId;
-    $currentNameIndex++;
     print "----------------------------------------\n";
 }
 
@@ -496,22 +562,38 @@ sub convertResearchRecipes {
     if ($response->is_success) {
       print "Response received...\n";
       my $content = $response->decoded_content;
-      if ($content =~ /item&id=(\d+)/) {
-          $itemId = $1;
-          print color("green"),"Item id located [$itemId]...\n", color("reset");
-          push @itemIds, $itemId;
-      } else {
-          print color("red"),"Item id not located...\n", color("reset");
-          $itemId = 0;
-          push @itemIds, 0;
+      #print "Debug: Content: $content\n";
+
+      while ($content =~ /id='(\d+)'>([^<]+)</g) {
+          push @detectedIDs, $1;
+          push @detectedNames, $2;
+      }
+
+      # Check if the name stored in $item is equal to any of the detected names, if so, store the associated @detectedIDs in $itemId
+      my $i = 0;
+      my $nameMatched = 0;
+      foreach my $detectedName (@detectedNames) {
+        #print a debug statement showing the name comparison below
+        #print "Debug: Comparing [$detectedName] to [$item]\n";
+        if ($detectedName eq $item) {
+          $itemId = $detectedIDs[$i];
+          print color("green"),"Item id located [$itemId] for item [$item]...\n", color("reset");
+          $nameMatched = 1;
+          last;
+        }
+        $i++;
+      }
+      if (!$nameMatched) {
+        print color("red"),"Item id not located for item [$item]...\n", color("reset");
+        $itemId = 0;
       }
     } else {
       print color("red"),"Response not received...\n", color("reset");
       push @itemIds, 0;
     }
-    $currentNameIndex++;
-    $itemId = 0;
+    push @itemIds, $itemId;
     print "----------------------------------------\n";
+    $currentNameIndex++;
   }
 
   print "Generate text rows for a new text document formatted for the wiki...\n";
@@ -535,20 +617,23 @@ sub convertResearchRecipes {
       my $itemName = $itemNames[$itemIndex];
       my $itemId = $itemIds[$itemIndex];
       if ($itemId and $itemId >= 1) {
-        print "Debug: Item Index: $itemIndex, Item Name: $itemName, Item ID: $itemId\n";
-        $row .= "[https://alla.clumsysworld.com/?a=item&id=$itemId $itemName] || ";
+        if ($i == 4) {
+          #remove "Spell: " from the beginning of the spell name
+          my $spellName = $itemName;
+          $spellName =~ s/Spell: //g;
+          my $spellID = getSpellIdByName($spellName);
+          $row .= "[https:alla.clumsysworld.com/?a=spell&id=$spellID $spellName] || "
+        } else {
+          print "Debug: Item Index: $itemIndex, Item Name: $itemName, Item ID: $itemId\n";
+          $row .= "[https://alla.clumsysworld.com/?a=item&id=$itemId $itemName] || ";
+        }
       } else {
         $row .= "$itemName || ";
       }
-
-      ##After the 5th item is added to the row, add a "|| " to the end of the row
-      #if ($i == 4) {
-        #$row .= "|| ";
-      #}
-
       $itemIndex++;
     }
     print "Debug: Row: $row\n";
+    $row =~ s/https:alla/https:\/\/alla/g;
     push @rows, $row;
     push @rows, "|-";
   }
