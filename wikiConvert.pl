@@ -541,21 +541,21 @@ sub convertResearchRecipes {
   }
   push @levelRecipeCounts, $count;
 
-  print "Debug: Level Ranges: ", join(", ", @levelRecipeCounts), "\n";
+  #print "Debug: Level Ranges: ", join(", ", @levelRecipeCounts), "\n";
 
   my $i = 0;
   foreach $count (@levelRecipeCounts) {
     if ($i == 0) {
-      print "Debug: Pushing print at line: ", $count - 1, "\n";
+      #print "Debug: Pushing print at line: ", $count - 1, "\n";
       push @printAtLines, $count - 1;
     } elsif ($i == 1) {
-      print "Debug: Pushing print at line: ", ($levelRecipeCounts[0] + $count) - 1, "\n";
+      #print "Debug: Pushing print at line: ", ($levelRecipeCounts[0] + $count) - 1, "\n";
       push @printAtLines, ($levelRecipeCounts[0] + $count) - 1;
     } elsif ($i == 2) {
-      print "Debug: Pushing print at line: ", ($levelRecipeCounts[0] + $levelRecipeCounts[1] + $count) - 1, "\n";
+      #print "Debug: Pushing print at line: ", ($levelRecipeCounts[0] + $levelRecipeCounts[1] + $count) - 1, "\n";
       push @printAtLines, ($levelRecipeCounts[0] + $levelRecipeCounts[1] + $count) - 1;
     } elsif ($i == 3) {
-      print "Debug: Pushing print at line: ", ($levelRecipeCounts[0] + $levelRecipeCounts[1] + $levelRecipeCounts[2] + $count) - 1, "\n";
+      #print "Debug: Pushing print at line: ", ($levelRecipeCounts[0] + $levelRecipeCounts[1] + $levelRecipeCounts[2] + $count) - 1, "\n";
       push @printAtLines, ($levelRecipeCounts[0] + $levelRecipeCounts[1] + $levelRecipeCounts[2] + $count) - 1;
     }
       $i++;
@@ -688,28 +688,28 @@ sub convertResearchRecipes {
     push @rows, "|-";
     if ($recipeIndex == $printAtLines[0]) {
       my $printLine = $printAtLines[0];
-      print "Debug: Recipe Index: $recipeIndex, Print At Line: $printLine\n";
+      #print "Debug: Recipe Index: $recipeIndex, Print At Line: $printLine\n";
       push @rows, $printAtLinesContent[0];
       push @rows, "|-";
       push @rows, "| Scribestone || Energy Focus || Power Component || Required Spell or Tome || Product  || Cost";
       push @rows, "|-";
     } elsif ($recipeIndex == $printAtLines[1]) {
       my $printLine = $printAtLines[1];
-      print "Debug: Recipe Index: $recipeIndex, Print At Line: $printLine\n";
+      #print "Debug: Recipe Index: $recipeIndex, Print At Line: $printLine\n";
       push @rows, $printAtLinesContent[1];
       push @rows, "|-";
       push @rows, "| Scribestone || Energy Focus || Power Component || Required Spell or Tome || Product  || Cost";
       push @rows, "|-";
     } elsif ($recipeIndex == $printAtLines[2]) {
       my $printLine = $printAtLines[2];
-      print "Debug: Recipe Index: $recipeIndex, Print At Line: $printLine\n";
+      #print "Debug: Recipe Index: $recipeIndex, Print At Line: $printLine\n";
       push @rows, $printAtLinesContent[2];
       push @rows, "|-";
       push @rows, "| Scribestone || Energy Focus || Power Component || Required Spell or Tome || Product  || Cost";
       push @rows, "|-";
     } elsif ($recipeIndex == $printAtLines[3]) {
       my $printLine = $printAtLines[3];
-      print "Debug: Recipe Index: $recipeIndex, Print At Line: $printLine\n";
+      #print "Debug: Recipe Index: $recipeIndex, Print At Line: $printLine\n";
       push @rows, $printAtLinesContent[3];
       push @rows, "|-";
       push @rows, "| Scribestone || Energy Focus || Power Component || Required Spell or Tome || Product  || Cost";
