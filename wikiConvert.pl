@@ -450,6 +450,7 @@ foreach my $spell (@spellNames) {
     }
     push @spellIds, $spellId;
     print "----------------------------------------\n";
+    $currentNameIndex++;
 }
 
   print "Replacing spell names with Alla Clone links...\n";
