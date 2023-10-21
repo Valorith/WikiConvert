@@ -1,0 +1,458 @@
+==Spells==
+{| class="wikitable"	
+|-
+! colspan="4" | '''Level 1'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Salve}} || 8 || Alteration || Single target
+|-
+! colspan="4" | '''Level 2'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Flash of Light}} || 12 || Divination || Single target
+|-
+! colspan="4" | '''Level 3'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{True North}} || 5 || Divination || Self only
+|-
+! colspan="4" | '''Level 4'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Sense the Dead}} || 5 || Divination || Self only
+|-
+! colspan="4" | '''Level 5'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Cure Poison}} || 20 || Alteration || Single target
+|-
+! colspan="4" | '''Level 6'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Minor Healing}} || 10 || Alteration || Single target
+|-
+! colspan="4" | '''Level 7'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Cease}} || 15 || Evocation || Single target
+|-
+! colspan="4" | '''Level 8'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Courage}} || 12 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 9'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Spook the Dead}} || 10 || Alteration || Undead only
+|-
+|{{Yaulp}} || 1 || Abjuration || Self only
+|-
+! colspan="4" | '''Level 10'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Lull}} || 10 || Alteration || Single target
+|-
+! colspan="4" | '''Level 11'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Cure Disease}} || 20 || Alteration || Single target
+|-
+! colspan="4" | '''Level 12'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Light Healing}} || 28 || Alteration || Single target
+|-
+! colspan="4" | '''Level 13'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Desist}} || 25 || Evocation || Single target
+|-
+! colspan="4" | '''Level 14'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Hammer of Wrath}} || 50 || Conjuration || Self only
+|-
+|{{Ward Undead}} || 5 || Evocation || Undead only
+|-
+! colspan="4" | '''Level 15'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Holy Armor}} || 20 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 16'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Halo of Light}} || 40 || Conjuration || Self only
+|-
+! colspan="4" | '''Level 17'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Invisibility versus Undead}} || 40 || Divination || Single target
+|-
+! colspan="4" | '''Level 18'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Reckless Strength}} || 30 || Alteration || Single target
+|-
+! colspan="4" | '''Level 19'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Remove Minor Curse}} || 25 || Alteration || Single target
+|-
+|{{Root}} || 30 || Alteration || Single target
+|-
+! colspan="4" | '''Level 20'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Center}} || 40 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 21'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Endure Poison}} || 20 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 22'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Reanimation}} || 150 || Alteration || Target's corpse
+|-
+! colspan="4" | '''Level 23'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Hammer of Striking}} || 100 || Conjuration || Self only
+|-
+! colspan="4" | '''Level 24'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Astounding Light}} || 60 || Evocation || Area of effect around the caster
+|-
+|{{Symbol of Transal}} || 55 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 25'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Soothe}} || 30 || Alteration || Single target
+|-
+! colspan="4" | '''Level 26'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Instrument of Nife}} || 50 || Abjuration || Self only
+|-
+! colspan="4" | '''Level 27'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Healing}} || 65 || Alteration || Single target
+|-
+! colspan="4" | '''Level 28'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Stun}} || 35 || Evocation || Single target
+|-
+! colspan="4" | '''Level 29'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Endure Magic}} || 40 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 30'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Expulse Undead}} || 36 || Evocation || Undead only
+|-
+|{{Reconstitution}} || 200 || Alteration || Target's corpse
+|-
+|{{Spirit Armor}} || 75 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 31'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Reparation}} || 250 || Alteration || Target's corpse
+|-
+! colspan="4" | '''Level 32'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Cancel Magic}} || 30 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 33'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Symbol of Ryltan}} || 111 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 34'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Counteract Poison}} || 50 || Alteration || Single target
+|-
+|{{Remove Lesser Curse}} || 75 || Alteration || Single target
+|-
+! colspan="4" | '''Level 35'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Divine Vigor}} || 35 || Alteration || Single target
+|-
+! colspan="4" | '''Level 36'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Greater Healing}} || 115 || Alteration || Single target
+|-
+! colspan="4" | '''Level 37'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Daring}} || 60 || Abjuration || Single target
+|-
+|{{Divine Purpose}} || 1 || Alteration || Self only
+|-
+! colspan="4" | '''Level 38'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Endure Disease}} || 20 || Abjuration || Single target
+|-
+|{{Yaulp II}} || 1 || Abjuration || Self only
+|-
+! colspan="4" | '''Level 39'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Confounding Light}} || 120 || Evocation || Area of effect around the caster
+|-
+|{{Guard}} || 80 || Abjuration || Single target
+|-
+|{{Revive}} || 300 || Alteration || Target's corpse
+|-
+|{{Wave of Life}} || 274 || Alteration || Group teleport
+|-
+! colspan="4" | '''Level 42'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Holy Might}} || 60 || Evocation || Single target
+|-
+! colspan="4" | '''Level 43'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Calm}} || 50 || Alteration || Single target
+|-
+! colspan="4" | '''Level 44'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Ethereal Cleansing}} || 150 || Alteration || Single target
+|-
+|{{Valor of Marr}} || 300 || Alteration || Self only
+|-
+! colspan="4" | '''Level 45'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Divine Might}} || 100 || Alteration || Self only
+|-
+|{{Remove Curse}} || 75 || Alteration || Single target
+|-
+! colspan="4" | '''Level 46'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Dismiss Undead}} || 63 || Evocation || Undead only
+|-
+|{{Symbol of Pinzarn}} || 200 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 47'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Thunder of Karana}} || 75 || Evocation || Single target
+|-
+|{{Valor}} || 90 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 48'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Armor of Faith}} || 150 || Abjuration || Single target
+|-
+|{{Divine Aura}} || 10 || Abjuration || Self only
+|-
+! colspan="4" | '''Level 49'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Brell's Steadfast Aegis}} || 175 || Alteration || Group
+|-
+|{{Pacify}} || 100 || Alteration || Single target
+|-
+|{{Renewal}} || 400 || Alteration || Target's corpse
+|-
+! colspan="4" | '''Level 50'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Flame of Light}} || 85 || Evocation || Single target
+|-
+|{{Resist Disease}} || 50 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 51'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Resistant Discipline}} || 0 || Defense || Self only
+|-
+! colspan="4" | '''Level 52'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Force}} || 90 || Evocation || Single target
+|-
+|{{Frenzied Strength}} || 90 || Alteration || Single target
+|-
+|{{Light of Life}} || 215 || Alteration || Single target
+|-
+|{{Overwhelming Purpose}} || 180 || Alteration || Self only
+|-
+! colspan="4" | '''Level 53'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Divine Glory}} || 60 || Alteration || Single target
+|-
+|{{Force of Akera}} || 90 || Evocation || Single target
+|-
+! colspan="4" | '''Level 54'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Expel Undead}} || 93 || Evocation || Undead only
+|-
+|{{Fearless Discipline}} || 0 || Defense || Self only
+|-
+|{{Instill}} || 60 || Alteration || Single target
+|-
+|{{Quellious' Word of Tranquility}} || 200 || Evocation || Single target
+|-
+! colspan="4" | '''Level 55'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Austerity}} || 550 || Abjuration || Single target
+|-
+|{{Bemusing Light}} || 200 || Evocation || Area of effect around the caster
+|-
+|{{Divine Favor}} || 150 || Abjuration || Single target
+|-
+|{{Holy Aura}} || 340 || Conjuration || Self only
+|-
+|{{Holyforge Discipline}} || 0 || Offense || Self only
+|-
+|{{Resist Magic}} || 85 || Abjuration || Single target
+|-
+|{{Restoration}} || 600 || Alteration || Target's corpse
+|-
+|{{Wave of Healing}} || 503 || Alteration || Group
+|-
+! colspan="4" | '''Level 56'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Breath of Tunare}} || 1 || Alteration || Self only
+|-
+|{{Counteract Disease}} || 50 || Alteration || Single target
+|-
+|{{Guard of Piety}} || 0 || Alteration || Self only
+|-
+|{{Yaulp III}} || 1 || Abjuration || Self only
+|-
+! colspan="4" | '''Level 57'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Superior Healing}} || 185 || Alteration || Single target
+|-
+! colspan="4" | '''Level 58'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Blessing of Austerity}} || 1650 || Abjuration || Group teleport
+|-
+|{{Healing Wave of Prexus}} || 698 || Alteration || Group
+|-
+|{{Nullify Magic}} || 50 || Abjuration || Single target
+|-
+|{{Symbol of Naltron}} || 315 || Abjuration || Single target
+|-
+! colspan="4" | '''Level 59'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Celestial Cleansing}} || 225 || Alteration || Single target
+|-
+|{{Deflection Discipline}} || 0 || Blockskill || Self only
+|-
+|{{Resurrection}} || 700 || Alteration || Target's corpse
+|-
+! colspan="4" | '''Level 60'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|{{Battlemaster's Advantage}} || 0 || Abjuration || Self only
+|-
+|{{Brell's Mountainous Barrier}} || 200 || Alteration || Group
+|-
+|{{Divine Strength}} || 75 || Alteration || Single target
+|-
+|{{Eradicate Curse}} || 400 || Alteration || Single target
+|-
+|{{One Handed Expertise}} || 0 || Conjuration || Self only
+|-
+|{{Remove Greater Curse}} || 100 || Alteration || Single target
+|-
+|{{Resolution}} || 110 || Abjuration || Single target
+|-
+|{{Sanctification Discipline}} || 0 || Defense || Self only
+|-
+|{{Shield Expertise}} || 0 || Conjuration || Self only
+|-
+|{{Shield of Words}} || 300 || Abjuration || Single target
+|-
+|{{Two Handed Expertise}} || 0 || Conjuration || Self only
+|-
+|{{Yaulp IV}} || 1 || Abjuration || Self only
+|-
+|}

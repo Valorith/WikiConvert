@@ -1,0 +1,458 @@
+==Spells==
+{| class="wikitable"	
+|-
+! colspan="4" | '''Level 1'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=700 Chant of Battle] || 0 || Percussion_instruments || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=24082 Chant of Chaos] || 0 || Percussion_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=22487 Chant of Flame] || 0 || Percussion_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=22488 Chant of Frost] || 0 || Percussion_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=22486 Chant of Magic] || 0 || Percussion_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=22490 Chant of Plague] || 0 || Percussion_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=22489 Chant of Venom] || 0 || Percussion_instruments || Single target
+|-
+! colspan="4" | '''Level 2'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=703 Chords of Dissonance] || 0 || Stringed_instruments || Area of effect around the caster
+|-
+! colspan="4" | '''Level 4'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=720 Lyssa's Locating Lyric] || 0 || Singing || Self only
+|-
+! colspan="4" | '''Level 5'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=717 Selo's Accelerando] || 0 || Percussion_instruments || Group
+|-
+! colspan="4" | '''Level 6'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=7 Hymn of Restoration] || 0 || Stringed_instruments || Group
+|-
+! colspan="4" | '''Level 7'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=734 Jonthan's Whistling Warsong] || 0 || Singing || Self only
+|-
+! colspan="4" | '''Level 8'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=728 Kelin's Lugubrious Lament] || 0 || Stringed_instruments || Single target
+|-
+! colspan="4" | '''Level 9'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=710 Elemental Rhythms] || 0 || Percussion_instruments || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2601 Magical Monologue] || 0 || Singing || Self only
+|-
+! colspan="4" | '''Level 10'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=701 Anthem de Arms] || 0 || Singing || Group
+|-
+! colspan="4" | '''Level 11'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=708 Cinda's Charismatic Carillon] || 0 || Wind_instruments || Single target
+|-
+! colspan="4" | '''Level 12'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=704 Brusco's Boastful Bellow] || 0 || Singing || Single target
+|-
+! colspan="4" | '''Level 13'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=711 Purifying Rhythms] || 0 || Percussion_instruments || Group
+|-
+! colspan="4" | '''Level 14'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=737 Lyssa's Cataloging Libretto] || 0 || Singing || Single target
+|-
+! colspan="4" | '''Level 15'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=724 Kelin's Lucid Lullaby] || 0 || Stringed_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2602 Song of Sustenance] || 0 || Stringed_instruments || Group
+|-
+! colspan="4" | '''Level 16'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=729 Tarew's Aquatic Ayre] || 0 || Wind_instruments || Group
+|-
+! colspan="4" | '''Level 17'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=709 Guardian Rhythms] || 0 || Percussion_instruments || Group
+|-
+! colspan="4" | '''Level 18'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=730 Denon's Disruptive Discord] || 0 || Brass_instruments || Area of effect around the caster
+|-
+! colspan="4" | '''Level 19'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=30772 Shauri's Sonorous Clouding] || 0 || Wind_instruments || Group
+|-
+! colspan="4" | '''Level 20'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1287 Cassindra's Chant of Clarity] || 0 || Singing || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=705 Largo's Melodic Binding] || 0 || Singing || Area of effect around the caster
+|-
+! colspan="4" | '''Level 21'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=739 Melanie's Mellifluous Motion] || 0 || Wind_instruments || Group
+|-
+! colspan="4" | '''Level 22'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=32891 Alenia's Disenchanting Melody] || 0 || Stringed_instruments || Group
+|-
+! colspan="4" | '''Level 23'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=738 Selo's Consonant Chain] || 0 || Singing || Single target
+|-
+! colspan="4" | '''Level 24'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=735 Lyssa's Veracious Concord] || 0 || Wind_instruments || Group
+|-
+! colspan="4" | '''Level 25'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=712 Psalm of Warmth] || 0 || Singing || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4395 Selo's Rhythm of Speed] || 0 || Percussion_instruments || Group
+|-
+! colspan="4" | '''Level 26'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1329 Angstlich's Appalling Screech] || 0 || Brass_instruments || Area of effect around the caster
+|-
+! colspan="4" | '''Level 27'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=725 Solon's Song of the Sirens] || 0 || Wind_instruments || Single target
+|-
+! colspan="4" | '''Level 28'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=741 Crission's Pixie Strike] || 0 || Wind_instruments || Single target
+|-
+! colspan="4" | '''Level 29'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=715 Psalm of Vitality] || 0 || Singing || Group
+|-
+! colspan="4" | '''Level 30'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2603 Amplification] || 0 || Singing || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=707 Fufil's Curtailing Chant] || 0 || Percussion_instruments || Single target
+|-
+! colspan="4" | '''Level 31'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1328 Agilmente's Aria of Eagles] || 0 || Wind_instruments || Group
+|-
+! colspan="4" | '''Level 32'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=723 Cassindra's Chorus of Clarity] || 0 || Singing || Group
+|-
+! colspan="4" | '''Level 33'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=713 Psalm of Cooling] || 0 || Singing || Group
+|-
+! colspan="4" | '''Level 34'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1448 Cantata of Soothing] || 0 || Stringed_instruments || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=721 Lyssa's Solidarity of Vision] || 0 || Wind_instruments || Single target
+|-
+! colspan="4" | '''Level 35'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=736 Denon's Dissension] || 0 || Brass_instruments || Area of effect around the caster
+|-
+! colspan="4" | '''Level 36'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=740 Vilia's Verses of Celerity] || 0 || Singing || Group
+|-
+! colspan="4" | '''Level 37'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=716 Psalm of Purity] || 0 || Singing || Group
+|-
+! colspan="4" | '''Level 38'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=743 Tuyen's Chant of Flame] || 0 || Percussion_instruments || Single target
+|-
+! colspan="4" | '''Level 39'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2604 Katta's Song of Sword Dancing] || 0 || Percussion_instruments || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=750 Solon's Bewitching Bravura] || 60 || Wind_instruments || Single target
+|-
+! colspan="4" | '''Level 40'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=868 Sionachie's Dreams] || 0 || Wind_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=726 Syvelian's Anti-Magic Aria] || 0 || Singing || Single target
+|-
+! colspan="4" | '''Level 41'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=714 Psalm of Mystic Shielding] || 0 || Singing || Group
+|-
+! colspan="4" | '''Level 42'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=702 McVaxius' Berserker Crescendo] || 0 || Brass_instruments || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3567 Tuyen's Chant of Disease] || 0 || Percussion_instruments || Single target
+|-
+! colspan="4" | '''Level 43'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=742 Denon's Desperate Dirge] || 800 || Singing || Area of effect around the target
+|-
+! colspan="4" | '''Level 44'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=745 Cassindra's Elegy] || 0 || Singing || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4085 Forpar's Aria of Affliction] || 0 || Singing || Group teleport
+|-
+! colspan="4" | '''Level 45'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3682 Aria of Asceticism] || 0 || Wind_instruments || Group teleport
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=749 Jonthan's Provocation] || 0 || Singing || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4083 Rizlona's Embers] || 0 || Singing || Group teleport
+|-
+! colspan="4" | '''Level 46'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=744 Tuyen's Chant of Frost] || 0 || Percussion_instruments || Single target
+|-
+! colspan="4" | '''Level 47'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=748 Niv's Melody of Preservation] || 0 || Stringed_instruments || Group
+|-
+! colspan="4" | '''Level 48'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=746 Selo's Chords of Cessation] || 0 || Stringed_instruments || Area of effect around the caster
+|-
+! colspan="4" | '''Level 49'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2605 Selo's Accelerating Chorus] || 0 || Percussion_instruments || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1450 Shield of Songs] || 0 || Stringed_instruments || Group
+|-
+! colspan="4" | '''Level 50'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1449 Melody of Ervaj] || 0 || Brass_instruments || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3566 Tuyen's Chant of Poison] || 0 || Percussion_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=747 Verses of Victory] || 0 || Singing || Group
+|-
+! colspan="4" | '''Level 51'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1751 Largo's Assonant Binding] || 0 || Singing || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4585 Resistant Discipline] || 0 || Defense || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1330 Selo's Song of Travel] || 0 || Percussion_instruments || Group
+|-
+! colspan="4" | '''Level 52'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=3681 Aria of Innocence] || 0 || Wind_instruments || Group teleport
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2606 Battlecry of the Vah Shir] || 0 || Brass_instruments || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4086 Forpar's Psalm of Pain] || 0 || Singing || Group teleport
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1752 Nillipus' March of the Wee] || 0 || Percussion_instruments || Group
+|-
+! colspan="4" | '''Level 53'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4084 Rizlona's Fire] || 0 || Singing || Group teleport
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1754 Song of Dawn] || 0 || Wind_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1753 Song of Twilight] || 0 || Wind_instruments || Single target
+|-
+! colspan="4" | '''Level 54'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2607 Elemental Chorus] || 0 || Percussion_instruments || Friendly area of effect
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4587 Fearless Discipline] || 0 || Defense || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1758 Selo's Assonant Strain] || 0 || Stringed_instruments || Area of effect around the caster
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1757 Vilia's Chorus of Celerity] || 0 || Singing || Group
+|-
+! colspan="4" | '''Level 55'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=8926 Aura of Insight] || 0 || Brass_instruments || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1747 Brusco's Bombastic Bellow] || 0 || Singing || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1759 Cantata of Replenishment] || 0 || Stringed_instruments || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4516 Deftdance Discipline] || 0 || Defense || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1451 Occlusion of Sound] || 0 || Percussion_instruments || Single target
+|-
+! colspan="4" | '''Level 56'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2608 Purifying Chorus] || 0 || Percussion_instruments || Friendly area of effect
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1755 Song of Highsun] || 0 || Wind_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1756 Song of Midnight] || 0 || Brass_instruments || Area of effect around the caster
+|-
+! colspan="4" | '''Level 57'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1761 Cassindra's Insipid Ditty] || 0 || Stringed_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1760 McVaxius' Rousing Rondo] || 0 || Brass_instruments || Group
+|-
+! colspan="4" | '''Level 58'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2609 Chorus of Replenishment] || 0 || Stringed_instruments || Friendly area of effect
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1100 Dreams of Ayonae] || 0 || Wind_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1762 Jonthan's Inspiration] || 0 || Singing || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1763 Niv's Harmonic] || 0 || Singing || Group
+|-
+! colspan="4" | '''Level 59'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1764 Denon's Bereavement] || 0 || Stringed_instruments || Area of effect around the caster
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1765 Solon's Charismatic Concord] || 0 || Singing || Group
+|-
+! colspan="4" | '''Level 60'''
+|-
+| Spell Name || Mana || Skill || Target Type
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1196 Ancient: Lcea's Lament] || 0 || Stringed_instruments || Friendly area of effect
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1197 Ancient: Lullaby of Shadow] || 0 || Wind_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1748 Angstlich's Assonance] || 0 || Brass_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1452 Composition of Ervaj] || 0 || Brass_instruments || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2936 Ervaj's Lost Composition] || 0 || Brass_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4210 Fufil's Diminishing Dirge] || 0 || Percussion_instruments || Single target
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=1749 Kazumi's Note of Preservation] || 0 || Wind_instruments || Group
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=4586 Puretone Discipline] || 0 || Singing || Self only
+|-
+|[https://alla.clumsysworld.com/?a=spell&id=2610 Warsong of the Vah Shir] || 0 || Brass_instruments || Group
+|-
+|}

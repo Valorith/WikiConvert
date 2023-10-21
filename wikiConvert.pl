@@ -7,6 +7,7 @@ use Cwd;
 use Fcntl;
 use Fcntl qw(O_RDWR O_CREAT O_EXCL);
 use Term::ANSIColor;
+use File::Path 'make_path';
 
 # Primary global variables
 our $AllaCloneBaseURL = "https://alla.clumsysworld.com";
@@ -158,10 +159,24 @@ sub getSpellList {
   my $adjustClassName = lc($className);
   $adjustClassName =~ s/ /_/g;
 
+  #Subdirectory name
+  my $subdir_name = 'Class Spell Lists';
+
+  my $subdir_path = "$dir/$subdir_name";
+
+  # Check if subdirectory exists
+  if (-d $subdir_path) {
+      print "Subdirectory '$subdir_name' already exists in the current directory.\n";
+  } else {
+      # Create subdirectory
+      make_path($subdir_path) or die "Failed to create subdirectory '$subdir_name': $!\n";
+      print "Subdirectory '$subdir_name' has been created in the current directory.\n";
+  }
+
   print "Saving new file...\n";
   #Save to a new file in the root directory with a name matching the class name and "_spell_list.txt"
   my $fileName = "$adjustClassName"."_spell_list.txt";
-  $filePath = "$dir/$fileName";
+  $filePath = "$subdir_path/$fileName";
   open(my $newFile, '>', $filePath) or die "Could not open file '$filePath' $!";
   print $newFile $outputString;
   close $newFile;
@@ -286,6 +301,22 @@ sub convertItemNames {
     }
     $i++;
   }
+
+  #Subdirectory name
+  my $subdir_name = 'Converted Item Files';
+
+  my $subdir_path = "$dir/$subdir_name";
+
+  # Check if subdirectory exists
+  if (-d $subdir_path) {
+      print "Subdirectory '$subdir_name' already exists in the current directory.\n";
+  } else {
+      # Create subdirectory
+      make_path($subdir_path) or die "Failed to create subdirectory '$subdir_name': $!\n";
+      print "Subdirectory '$subdir_name' has been created in the current directory.\n";
+  }
+
+  $filePath = "$subdir_path/$fileName";
 
 
   print "Saving new file...\n";
@@ -466,6 +497,21 @@ foreach my $spell (@spellNames) {
     $i++;
   }
 
+  #Subdirectory name
+  my $subdir_name = 'Converted Spell Files';
+
+  my $subdir_path = "$dir/$subdir_name";
+
+  # Check if subdirectory exists
+  if (-d $subdir_path) {
+      print "Subdirectory '$subdir_name' already exists in the current directory.\n";
+  } else {
+      # Create subdirectory
+      make_path($subdir_path) or die "Failed to create subdirectory '$subdir_name': $!\n";
+      print "Subdirectory '$subdir_name' has been created in the current directory.\n";
+  }
+
+  $filePath = "$subdir_path/$fileName";
 
   print "Saving new file...\n";
   my $newFilePath = substr($filePath, 0, rindex($filePath, '.')) . "_converted.txt";
@@ -724,6 +770,23 @@ sub convertResearchRecipes {
 
   my $outputString = join("\n", @rows);
   $text = $outputString;
+
+
+  #Subdirectory name
+  my $subdir_name = 'Converted Spell Research Files';
+
+  my $subdir_path = "$dir/$subdir_name";
+
+  # Check if subdirectory exists
+  if (-d $subdir_path) {
+      print "Subdirectory '$subdir_name' already exists in the current directory.\n";
+  } else {
+      # Create subdirectory
+      make_path($subdir_path) or die "Failed to create subdirectory '$subdir_name': $!\n";
+      print "Subdirectory '$subdir_name' has been created in the current directory.\n";
+  }
+
+  $filePath = "$subdir_path/$fileName";
 
   print "Saving new file...\n";
   my $newFilePath = substr($filePath, 0, rindex($filePath, '.')) . "_converted.txt";
