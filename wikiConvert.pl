@@ -379,12 +379,19 @@ sub getSpellIdByName {
 }
 
 sub convertSpellNames {
-  my $fileName = shift;   
+  my $fileName = shift;
+  my $subDir = shift;   
   my $text;
   
-  # Concatenate the directory path and file name
-  $filePath = "$dir/$fileName";
-    
+  if ($subDir) {
+    $filePath = "$dir/Class Spell Lists/$fileName";
+
+  } else {
+    # Concatenate the directory path and file name
+    $filePath = "$dir/$fileName";
+  }
+
+  
   if (-e $filePath && -f $filePath) {
   # File exists and is a regular file
   print "Opening file...\n";
@@ -1007,7 +1014,8 @@ if (lc($linkType) eq "spelllist") { #Determine scope of conversion: All Classes 
       
       #print "Debug: Class name: $className\n";
       #include error handling so that if an error occurs, it skips to the next class name
-      eval { convertSpellNames("$className"); };
+      my $fileName = $className . "_spell_list.txt";
+      eval { convertSpellNames($fileName, 1); };
       if ($@) {
         print color("red"),"Error: $@\n", color("reset");
         print color("red"),"Skipping to next class...\n", color("reset");
