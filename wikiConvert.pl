@@ -131,7 +131,7 @@ sub getSpellList {
   #count the number of occurances of "||" in $headerRow and subtract one to get the number of columns
   $headerCount = () = $headerRow =~ /\|\|/g;
   $headerCount++; #add one to account for the first column
-  my @output = ("==Spells==",
+  my @output = ("==Spell List==",
                 "{| class=\"wikitable\"\t",
                 "|-");
   my $outputRow = "";
@@ -382,6 +382,9 @@ sub convertSpellNames {
   my $fileName = shift;
   my $subDir = shift;   
   my $text;
+
+  # Override subdir flag for now
+  $subDir = 1;
   
   if ($subDir) {
     $filePath = "$dir/Class Spell Lists/$fileName";
@@ -391,11 +394,12 @@ sub convertSpellNames {
     $filePath = "$dir/$fileName";
   }
 
+  print "Debug: File path is: $filePath\n";
   
   if (-e $filePath && -f $filePath) {
   # File exists and is a regular file
   print "Opening file...\n";
-  sysopen(our $file, $filePath, 2) or die "Could not open file $filePath: $!";
+  sysopen(my $file, $filePath, 2) or die "Could not open file $filePath: $!";
   $text = do {local $/; <$file>};
   close $file;
   } else {
@@ -444,6 +448,8 @@ foreach my $spellName (@spellNames) {
 
   my $currentNameIndex = 1;
 
+  # Clear the spellIds array
+ @spellIds = ();
 
 foreach my $spell (@spellNames) {
     my $ua = LWP::UserAgent->new;
@@ -521,8 +527,22 @@ foreach my $spell (@spellNames) {
   $filePath = "$subdir_path/$fileName";
 
   print "Saving new file...\n";
-  my $newFilePath = substr($filePath, 0, rindex($filePath, '.')) . "_converted.txt";
-  sysopen(my $newFile, $newFilePath, O_RDWR|O_CREAT|O_EXCL) or die "Could not create file $newFilePath: $!";
+  my $baseFilePath = substr($filePath, 0, rindex($filePath, '.'));
+  my $newFilePath;
+  my $newFile;
+  my $suffix = '';
+
+  while (1) {
+    my $suffixPart = $suffix eq '' ? '' : "_$suffix";
+    $newFilePath = "${baseFilePath}_converted${suffixPart}.txt";
+    unless (sysopen($newFile, $newFilePath, O_RDWR|O_CREAT|O_EXCL)) {
+      print "Could not create file $newFilePath: $!, trying next...\n";
+      $suffix = $suffix eq '' ? 1 : $suffix + 1;
+      next;
+    }
+    last;
+  }
+
   print $newFile $text;
   close $newFile;
 
@@ -907,12 +927,57 @@ if (lc($linkType) eq "items") {
   convertItemNames($fileName);
   
 } elsif (lc($linkType) eq "spells") {
+  print "Do you want to convert spell lists for All classes (all) or a Single (single) class?: ";
+  my $listScope = <>;
+  chomp $listScope;
 
-  print "Please enter the file name for your .txt document (within this directory): ";
-  my $fileName = <>;
-  chomp $fileName;
+  my $fileName = "";
+  my $convertingAll = 0;
 
-  convertSpellNames($fileName);
+
+  if (lc($listScope) eq "all") {
+    $convertingAll = 1;
+    # Look within the "Class Spell Lists" subdirectory for all .txt files and convert them to spell links
+
+   
+    opendir my $spellListDir, "Class Spell Lists/" or die "Cannot open directory: $!";
+    my @files = readdir $spellListDir;
+    closedir $spellListDir;
+
+    foreach my $file (@files) {
+      if ($file =~ /\.txt$/) {
+        convertSpellNames($file);
+      }
+    }
+    
+
+
+  } elsif (lc($listScope) eq "single") {
+    print "Please enter the file name for your .txt document (within the 'Class Spell Lists' directory): ";
+    $fileName = <>;
+    chomp $fileName;
+  } else {
+    print "Invalid command. Exiting...\n";
+    print "Press any key to exit...\n";
+    <STDIN>;
+    exit;
+  }
+
+  
+  if ($fileName) {
+    convertSpellNames($fileName);
+  } elsif ($convertingAll) {
+    print "Finished converting all spell list files. Exiting...\n";
+    print "Press any key to exit...\n";
+    <STDIN>;
+    exit;
+  } else {
+    print "Invalid file name. Exiting...\n";
+    print "Press any key to exit...\n";
+    <STDIN>;
+    exit;
+  }
+  
 
 
 } elsif ((lc($linkType) eq "research")) {
@@ -1012,7 +1077,7 @@ if (lc($linkType) eq "spelllist") { #Determine scope of conversion: All Classes 
       $className =~ s/ /_/g;
       $className = lc($className);
       
-      #print "Debug: Class name: $className\n";
+      print "Debug: Class name: $className\n";
       #include error handling so that if an error occurs, it skips to the next class name
       my $fileName = $className . "_spell_list.txt";
       eval { convertSpellNames($fileName, 1); };
