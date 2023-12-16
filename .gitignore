@@ -2,3 +2,69 @@
 items_converted.txt
 
 .vscode/
+
+Class Spell Lists/bard_spell_list.txt
+
+Class Spell Lists/beastlord_spell_list.txt
+
+Class Spell Lists/berserker_spell_list.txt
+
+Class Spell Lists/cleric_spell_list.txt
+
+Class Spell Lists/druid_spell_list.txt
+
+Class Spell Lists/enchanter_spell_list.txt
+
+Class Spell Lists/magician_spell_list.txt
+
+Class Spell Lists/monk_spell_list.txt
+
+Class Spell Lists/necromancer_spell_list.txt
+
+Class Spell Lists/paladin_spell_list.txt
+
+Class Spell Lists/ranger_spell_list.txt
+
+Class Spell Lists/rogue_spell_list.txt
+
+Class Spell Lists/shadow_knight_spell_list.txt
+
+Class Spell Lists/shaman_spell_list.txt
+
+Class Spell Lists/warrior_spell_list.txt
+
+Class Spell Lists/wizard_spell_list.txt
+
+Converted Spell Files/bard_spell_list_converted.txt
+
+Converted Spell Files/beastlord_spell_list_converted.txt
+
+Converted Spell Files/berserker_spell_list_converted.txt
+
+Converted Spell Files/cleric_spell_list_converted.txt
+
+Converted Spell Files/druid_spell_list_converted.txt
+
+Converted Spell Files/enchanter_spell_list_converted.txt
+
+Converted Spell Files/magician_spell_list_converted.txt
+
+Converted Spell Files/monk_spell_list_converted.txt
+
+Converted Spell Files/necromancer_spell_list_converted.txt
+
+Converted Spell Files/paladin_spell_list_converted.txt
+
+Converted Spell Files/ranger_spell_list_converted.txt
+
+Converted Spell Files/rogue_spell_list_converted.txt
+
+Converted Spell Files/shadow_knight_spell_list_converted.txt
+
+Converted Spell Research Files/Shadowknight_crafted_spell_list_converted.txt
+
+Shadowknight_crafted_spell_list.txt
+
+spells.txt
+
+*.txt
